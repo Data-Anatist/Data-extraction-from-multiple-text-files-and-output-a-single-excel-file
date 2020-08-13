@@ -1,0 +1,406 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.10.04 15:32:07 =~=~=~=~=~=~=~=~=~=~=~=
+
+PNE-DISPENBLD-GF-SW3750-02#sh run
+Building configuration...
+
+Current configuration : 12249 bytes
+!
+! Last configuration change at 15:53:33 IST Mon Sep 16 2019 by harshald.tcs
+!
+version 12.2
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+!
+hostname PNE-DISPENBLD-GF-SW3750-02
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 64000
+logging console critical
+enable secret 5 $1$wLMU$6JojJZOecte2XoyOxlL6W0
+!
+username nocuser privilege 4 secret 5 $1$0/1F$tJ/btb5WtM/APUCefX/1f.
+ --More--         username localpne privilege 15 secret 5 $1$Ylzp$2Ke0idsAA2qa1n.k5xwJs1
+username localodc privilege 15 secret 5 $1$zMW2$l3QYACXK/GXuwsS5bsilT0
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ local
+aaa authentication login CONSOLE local
+aaa authentication enable default group tacacs+ enable
+aaa authentication dot1x default group radius local
+aaa authorization exec default group tacacs+ local 
+aaa authorization commands 15 default group tacacs+ local 
+aaa authorization network default local group radius 
+aaa authorization auth-proxy default group radius 
+aaa accounting dot1x default start-stop group radius
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+ --More--         !
+aaa session-id common
+clock timezone IST 5 30
+switch 1 provision ws-c3750g-24ts
+system mtu routing 1500
+vtp domain TML
+vtp mode transparent
+no ip source-route
+no ip domain-lookup
+ip domain-name pune.telco.co.in
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1516287360
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1516287360
+ revocation-check none
+ rsakeypair TP-self-signed-1516287360
+!
+!
+crypto pki certificate chain TP-self-signed-1516287360
+ certificate self-signed 01
+ --More--           30820265 308201CE A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31353136 32383733 3630301E 170D3933 30333031 30303032 
+  31345A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 35313632 
+  38373336 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100A0BE 369F4100 E951EF70 02DFBDCD 09C69B87 29F99A9D 9954FD67 A7E7FC8F 
+  5E3A535B 7CB99D7C 9ABFFD15 E20C6AE5 66AC4E35 B738B009 E4832BF5 29E1627D 
+  E8252B94 E7493B01 3FD93E51 D98B4ADB B09005B9 203E8628 8573A21F 73F5DF21 
+  D8FEE0C5 0B444D48 A5604525 5729EFA1 1F7D56ED 5327D70A AAFFB8AA B185E8B1 
+  D7870203 010001A3 818C3081 89300F06 03551D13 0101FF04 05300301 01FF3036 
+  0603551D 11042F30 2D822B50 4E452D44 49535045 4E424C44 2D47462D 53573337 
+  35302D30 322E7075 6E652E74 656C636F 2E636F2E 696E301F 0603551D 23041830 
+  1680141C A86C2E7B 478E879D DCD3DC19 CF3EBE4B 67271130 1D060355 1D0E0416 
+  04141CA8 6C2E7B47 8E879DDC D3DC19CF 3EBE4B67 2711300D 06092A86 4886F70D 
+  01010405 00038181 0065963B 4868E61E 55DCE506 44406152 0A61CC2B 764DC1A2 
+  3363CCCD 0ECBE82F DA0DE328 6E57CEAF 4E1EAD5E F336AC32 5ED229B2 FBBF85B3 
+  E3A5D583 7AA7F4BB 1D81324E 60468AB3 735FA338 F5DFB467 6CEEEAB2 04D8E16C 
+  1771A1D5 6E37571C D9DFE6CF 387B26E6 E3F5ED18 8CA25302 DD0AADC8 D4967C55 
+  C8163B93 6A347D05 CE
+  quit
+dot1x system-auth-control
+!
+ --More--         !
+!
+archive
+ path ftp://128.9.51.55/Pune/172.22.72.224
+ write-memory
+ time-period 43200
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 2,5,100,200-203,298,300,600 
+!
+ip ftp username netadmin.tcs
+ip ftp password 7 012003164D02052A006F601E2A414F42595D
+ip ssh time-out 60
+ip ssh version 2
+!
+!
+interface GigabitEthernet1/0/1
+ description 172.22.72.225
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 100
+ --More--          switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/3
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/4
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+ --More--         interface GigabitEthernet1/0/5
+ description 172.22.72.230
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 100
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/6
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/7
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/8
+ switchport access vlan 100
+ switchport mode access
+ --More--          switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/9
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/10
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/11
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ --More--          spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/12
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+ --More--         interface GigabitEthernet1/0/15
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/17
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/18
+ switchport access vlan 100
+ --More--          switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/19
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/20
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/21
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ --More--          spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/22
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/23
+ switchport access vlan 100
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/24
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+ --More--         !
+interface GigabitEthernet1/0/27
+!
+interface GigabitEthernet1/0/28
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ no ip mroute-cache
+!
+interface Vlan100
+ ip address 172.22.72.224 255.255.248.0
+ no ip redirects
+ no ip unreachables
+!
+ip default-gateway 172.22.72.1
+ip classless
+ip http server
+ip http secure-server
+!
+logging trap notifications
+logging 128.9.51.48
+access-list 50 permit 172.31.16.167
+ --More--         access-list 50 permit 172.31.16.166
+access-list 50 permit 172.31.16.165
+access-list 50 permit 172.31.16.159
+access-list 50 permit 172.27.128.96
+access-list 50 permit 172.31.17.205
+access-list 50 permit 128.9.52.48
+access-list 50 remark --> Read Only-SNMP Management
+access-list 50 permit 128.9.31.101
+access-list 51 permit 172.31.16.176
+access-list 51 permit 172.31.16.159
+access-list 51 permit 128.9.52.50
+access-list 51 remark --> Read Write-SNMP Management
+access-list 81 remark **NTP VULNARABLITY REMOVAL ACL**
+access-list 81 permit 172.31.9.241
+access-list 81 permit 172.24.47.207
+snmp-server group GROUP1 v3 priv read RO_ACCESS notify *tv.FFFFFFFF.FFFFFFFF.FFFFFFFF.FFFFFFFF7F access 50
+snmp-server group GROUP2 v3 priv write RW_ACCESS notify *tv.FFFFFFFF.FFFFFFFF.FFFFFFFF.FFFFFFFF7F access 51
+snmp-server view RO_ACCESS iso included
+snmp-server view RW_ACCESS iso included
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps tty
+ --More--         snmp-server enable traps entity
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps config
+snmp-server enable traps hsrp
+snmp-server enable traps ipmulticast
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps rtr
+snmp-server enable traps mac-notification move threshold
+snmp-server host 128.9.52.48 version 3 priv NWS 
+snmp-server host 172.27.128.96 version 3 priv NWS 
+snmp-server host 172.31.16.159 version 3 priv NWS 
+snmp-server host 172.31.16.165 version 3 priv NWS 
+snmp-server host 172.31.16.166 version 3 priv NWS 
+snmp-server host 172.31.16.167 version 3 priv NWS 
+snmp-server host 128.9.52.50 version 3 priv NWS_RW 
+snmp-server host 172.31.16.159 version 3 priv NWS_RW 
+ --More--         snmp-server host 172.31.16.176 version 3 priv NWS_RW 
+snmp-server manager
+tacacs-server host 172.22.66.101
+tacacs-server host 172.22.66.102
+tacacs-server directed-request
+tacacs-server key 7 09584F1D18081806041E17
+radius-server host 172.22.88.13 auth-port 1812 acct-port 1813 key 7 143B42085C097A3F653E161570435641
+radius-server host 172.22.88.13 auth-port 1645 acct-port 1646 key 7 1235551442065C106B3D010861657344
+radius-server host 172.31.16.5 auth-port 1645 acct-port 1646 key 7 0723714F1E04491156042E2C567A7A73
+radius-server retry method reorder
+radius-server timeout 15
+radius-server deadtime 15
+radius-server vsa send authentication
+!
+vstack
+banner motd ^C
+###################################################################################
+                                   **WARNING**
+The equipment now being accessed and information available through this equipment is 
+ --More--         confidential and proprietary of Tata Motors Ltd. It may be accessed or used only as specifically authorized. 
+All other access or use is prohibited and is subject to legal action!This system is for the use of authorized users only. 
+Individuals using this computer system without authority, or in excess of their authority, 
+are subject to having all of their activities on this system monitored and recorded by system personnel. 
+In the course of monitoring individuals improperly using this system, or in the course of system maintenance, 
+the activities of authorized users may also be monitored. Anyone using this 
+system expressly consents to such monitoring and is advised that if such monitoring 
+reveals possible evidence of criminal activity, system personnel may provide the 
+evidence of such monitoring to law enforcement officials
+####################################################################################
+^C
+!
+line con 0
+ password 7 1521580F113878042B633B31430B45
+line vty 0 4
+ --More--          session-timeout 10 
+ transport input ssh
+line vty 5 15
+ session-timeout 10 
+ transport input ssh
+!
+ntp authenticate
+ntp clock-period 36029588
+ntp access-group peer 81
+ntp server 172.24.47.207
+ntp server 172.31.9.241 prefer
+end
+
+PNE-DISPENBLD-GF-SW3750-02# 
+PNE-DISPENBLD-GF-SW3750-02#
+PNE-DISPENBLD-GF-SW3750-02#sh ver | Systtem image
+                                    ^
+% Invalid input detected at '^' marker.
+
+PNE-DISPENBLD-GF-SW3750-02#sh ver | Systtem imageiSysttem imagenSysttem image Systtem image
+PNE-DISPENBLD-GF-SW3750-02#sh ver | in Systtem imageem image 
+System image file is "flash:/c3750-ipbasek9-mz.122-55.SE12.bin"
+PNE-DISPENBLD-GF-SW3750-02#sh ver | in System image     serial number
+System serial number            : CAT1010N2YT
+PNE-DISPENBLD-GF-SW3750-02#
+PNE-DISPENBLD-GF-SW3750-02#q

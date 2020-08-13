@@ -1,0 +1,426 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.11.01 13:32:28 =~=~=~=~=~=~=~=~=~=~=~=
+login as: vishal. k.tcs
+Using keyboard-interactive authentication.
+Password:
+SSH@AOMAD34SW_2>
+SSH@AOMAD34SW_2>en
+No password has been assigned yet...
+SSH@AOMAD34SW_2#sh ver
+  Copyright (c) 2017 Ruckus Wireless, Inc. All rights reserved.
+    UNIT 1: compiled on Nov 28 2018 at 10:32:45 labeled as SPS08070d
+      (25707496 bytes) from Secondary SPS08070d.bin
+        SW: Version 08.0.70dT211 
+      Compressed Boot-Monitor Image size = 786944, Version:10.1.14T215 (spz10114)
+       Compiled on Thu Nov 15 13:09:58 2018
+
+  HW: Stackable ICX7250-48
+==========================================================================
+UNIT 1: SL 1: ICX7250-48 48-port Management Module
+      Serial  #:DUJ3815M0C4
+      License: BASE_SOFT_PACKAGE   (LID: fwlINGKoFeJ)
+      P-ASIC  0: type B344, rev 01  Chip BCM56344_A0
+==========================================================================
+UNIT 1: SL 2: ICX7250-SFP-Plus 8-port 80G Module
+==========================================================================
+ 1000 MHz ARM processor ARMv7 88 MHz bus
+ 8192 KB boot flash memory
+ 2048 MB code flash memory
+ 2048 MB DRAM
+STACKID 1  system uptime is 13 day(s) 18 hour(s) 37 minute(s) 56 second(s) 
+The system started at 18:55:56 GMT+05:30 Fri Oct 18 2019
+
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  The system : started=warm start   reloaded=by "reload"
+
+SSH@AOMAD34SW_2#sh run
+Current configuration:
+!
+ver 08.0.70dT211
+!
+stack unit 1
+  module 1 icx7250-48-port-management-module
+  module 2 icx7250-sfp-plus-8port-80g-module
+!
+!
+!
+!
+captive-portal tata
+  virtual-ip 172.31.16.5
+  virtual-port 80
+  login-page /guestTML_Guest-Reg66.php
+!
+!
+vlan 1 name DEFAULT-VLAN by port
+!
+vlan 100 by port
+ tagged ethe 1/1/47 to 1/1/48 
+ untagged ethe 1/1/8 ethe 1/1/24 
+!
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  vlan 200 name NAC_Guest by port
+ tagged ethe 1/1/47 
+ webauth
+  captive-portal profile tata
+  auth-mode captive-portal
+  no secure-login
+  trust-port ethernet 1/1/47
+  enable
+!
+vlan 201 name NAC-Restricted by port
+ tagged ethe 1/1/47 
+!
+vlan 205 by port
+ tagged ethe 1/1/47 
+!
+vlan 300 by port
+ tagged ethe 1/1/1 ethe 1/1/47 
+!
+!
+!
+!
+vlan 2001 by port
+ tagged ethe 1/1/47 
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  !
+!
+!
+!
+!
+!
+!
+!
+authentication
+ auth-default-vlan 100
+ restricted-vlan 2001
+ dot1x enable
+ dot1x enable ethe 1/1/2 to 1/1/7 ethe 1/1/9 to 1/1/23 ethe 1/1/25 to 1/1/46 
+ mac-authentication enable
+ mac-authentication enable ethe 1/1/2 to 1/1/7 ethe 1/1/9 to 1/1/23 ethe 1/1/25 to 1/1/32 
+!
+!
+aaa authentication web-server default local
+aaa authentication dot1x default radius
+aaa authentication login default tacacs+ radius local
+aaa authorization commands 0 default none
+aaa authorization coa enable
+aaa accounting exec default start-stop tacacs+
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  aaa accounting dot1x default start-stop radius
+aaa accounting system default start-stop tacacs+
+enable aaa console
+hostname AOMAD34SW_2
+ip address 172.18.133.7 255.255.255.0
+no ip dhcp-client enable
+ip default-gateway 172.18.133.1
+!
+logging host 128.9.51.48 
+no telnet server
+username netops password .....
+username nocuser privilege 4 password .....
+username cisco password .....
+username localodc password .....
+radius-client coa host 172.31.16.5 key 2 $I1FkUTZRb1ZyZjF8UVpZ
+radius-server host 172.31.16.5
+radius-server key 2 $I1FkUTZRb1ZyZjF8UVpZ
+tacacs-server host 172.22.66.101
+tacacs-server host 172.22.66.102
+tacacs-server key 2 $byFvITZzb3NVLQ==
+fdp run
+snmp-server view RO_ACCESS iso  included
+snmp-server view RW_ACCESS iso  included
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  snmp-server community ..... ro 50
+snmp-server community ..... rw 51
+snmp-server host 128.9.52.48 version v3 priv NWS
+snmp-server host 128.9.52.50 version v3 priv NWS_RW
+snmp-server host 172.31.16.159 version v3 priv NWS_RW
+snmp-server host 172.31.16.165 version v3 priv NWS
+snmp-server host 172.31.16.166 version v3 priv NWS
+snmp-server host 172.31.16.167 version v3 priv NWS
+snmp-server host 172.31.16.176 version v3 priv NWS_RW
+snmp-server host 172.27.128.96 version v3 priv NWS
+snmp-server group GROUP2 v3 priv access 51 write RW_ACCESS
+snmp-server group GROUP3 v3 auth access 50 read RO_ACCESS
+snmp-server user NWS GROUP3 v3 encrypted auth sha ede762a85012ecb9d3e37db594f5217686e43c5b priv encrypted aes ede762a85012ecb9d3e37db594f52176
+!
+!
+clock timezone gmt GMT+05:30
+!
+!
+ntp
+ server 172.24.47.207
+ server 172.31.9.241
+!
+!
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  no web-management http
+interface ethernet 1/1/1
+ port-name 172.20.66.2
+ dual-mode  300
+!
+interface ethernet 1/1/2
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/3
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/4
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/5
+ authentication auth-default-vlan 300
+!
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  interface ethernet 1/1/6
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/7
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/9
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/10
+ authentication auth-default-vlan 300
+!
+interface ethernet 1/1/11
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  interface ethernet 1/1/12
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/13
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/14
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/15
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/16
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/17
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/18
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/19
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/20
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/21
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/22
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/23
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/25
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/26
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  !
+interface ethernet 1/1/27
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/28
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/29
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/30
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/31
+ broadcast limit 1000 kbps
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/32
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/33
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/34
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/35
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  interface ethernet 1/1/36
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/37
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/38
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/39
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/40
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/41
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/42
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/43
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/44
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/45
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/46
+ broadcast limit 1000 kbps
+ multicast limit 1000 kbps
+ unknown-unicast limit 1000 kbps
+!
+interface ethernet 1/1/47
+ port-name 172.18.133.8
+!
+interface ethernet 1/2/1
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/2
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/3
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/4
+ speed-duplex 1000-full
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                  !
+interface ethernet 1/2/5
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/6
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/7
+ speed-duplex 1000-full
+!
+interface ethernet 1/2/8
+ speed-duplex 1000-full
+!
+!
+!
+ip access-list standard 50
+ sequence 10 permit host 172.31.16.167 
+ sequence 20 permit host 172.31.16.159 
+ sequence 30 permit host 172.31.17.205 
+ sequence 40 permit host 128.9.52.48 
+ sequence 50 permit host 128.9.31.101 
+ remark ---- >Read Only-SNMP Management
+ sequence 60 permit host 172.31.16.166 
+--More--, next page: Space, next line: Return key, quit: Control-c                                                                   sequence 70 permit host 172.31.16.165 
+ sequence 80 permit host 172.27.128.96 
+!
+ip access-list standard 51
+ remark --> Read Write-SNMP Management
+ sequence 10 permit host 172.31.16.159 
+ sequence 20 permit host 128.9.52.50 
+ sequence 30 permit host 172.31.16.176 
+!
+!
+lldp run
+!
+!
+ip ssh  timeout 60
+!
+!
+!
+end
+SSH@AOMAD34SW_2#    
+SSH@AOMAD34SW_2#q
+SSH@AOMAD34SW_2>q
+Invalid input -> q
+Type ? for a list
+SSH@AOMAD34SW_2>exit

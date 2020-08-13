@@ -1,0 +1,2313 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.11.01 13:35:31 =~=~=~=~=~=~=~=~=~=~=~=
+login as: vishalk.tcs
+###################################################################################
+                                               **WARNING**
+The equipment now being accessed and information available through this equipment is confidential and proprietary of Tata Motors Ltd. It may be accessed or used only as specifically authorized. All other access or use is prohibited and is subject to legal action!This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel. In the course of monitoring individuals improperly using this system, or in the course of system maintenance, the activities of authorized users may also be monitored. Anyone using this system expressly consents to such monitoring and is advised that if such monitoring reveals possible evidence of criminal activity, system personnel may provide the evidence of such monitoring to law enforcement officials
+###################################################################################
+
+Using keyboard-interactive authentication.
+vishalk.tcs@172.18.4.6's password: 
+Using keyboard-interactive authentication.
+vishalk.tcs@172.18.4.6's password: 
+[1;23r[1;1H[?6l[1;24r[?7l[2J[1;1H[1920;1920H[6n[1;1HYour previous successful login (as manager) was on 2019-11-01 13:35:48     
+ from 172.31.128.214
+Image stamp:   
+ /ws/swbuildm/rel_richmond_qaoff/code/build/anm(swbuildm_rel_richmond_qaoff_rel_
+richmond)
+                Mar 23 2016 11:48:46
+                WB.16.01.0006
+                275
+Boot Image:     Primary
+
+Boot ROM Version:    WB.15.05
+Active Boot ROM:     Primary
+
+ security-logging
+ server-group
+ servers
+ session
+ session-list
+
+ Status and Counters - General System Information
+
+  System Name        : PNE-GDC-SWHP2920-stack03                        
+  System Contact     : 
+  System Location    : 
+  MAC Age Time (sec) : 300    
+  Time Zone          : 330  
+  Daylight Time Rule : Continental-US-and-Canada 
+
+  Software revision  : WB.16.01.0006      
+  Base MAC Addr      : 1c98ec-030bcb
+
+ Member :1
+
+  ROM Version        : WB.15.05                      
+  Up Time            : 204 days       
+  CPU Util (%)       : 5           
+  MAC Addr           : 1c98ec-030bc0
+  Serial Number      : SG62FLY8BJ                              
+  Memory   - Total   : 73,282,048  
+             Free    : 41,447,680  
+
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H
+
+ Member :2
+
+  ROM Version        : WB.15.05                      
+  Up Time            : 204 days       
+  CPU Util (%)       : 0           
+  MAC Addr           : 1c98ec-034c80
+  Serial Number      : SG62FLY8B1                              
+  Memory   - Total   : 73,282,048  
+             Free    : 40,609,536  
+
+
+
+ Member :3
+
+  ROM Version        : WB.15.05                      
+  Up Time            : 204 days       
+  CPU Util (%)       : 0           
+  MAC Addr           : 1c98ec-039780
+  Serial Number      : SG62FLY8C0                              
+  Memory   - Total   : 73,282,048  
+             Free    : 58,424,000  
+
+ Member :4
+
+  ROM Version        : WB.15.05                      
+  Up Time            : 204 days       
+  CPU Util (%)       : 0           
+  MAC Addr           : 1c98ec-031c80
+  Serial Number      : SG62FLY8B7                              
+  Memory   - Total   : 73,282,048  
+             Free    : 58,424,000  
+
+
+Running configuration:
+
+; hpStack_WB Configuration Editor; Created on release #WB.16.01.0006
+; Ver #0c:00.34.59.14.29.eb.8f.fc.f3.ff.37.2d:d2
+; encrypt-cred yeZaT7FFcdQBk95l4YHxWbIcduzuEe5aUnEIGtANRTlHkFrctJ+U6S/+k7VI2hkm
+
+stacking
+   member 1 type "J9728A" mac-address 1c98ec-030bc0
+   member 1 priority 255
+   member 2 type "J9728A" mac-address 1c98ec-034c80
+   member 2 priority 254
+   member 3 type "J9728A" mac-address 1c98ec-039780
+   member 3 priority 253
+   member 4 type "J9728A" mac-address 1c98ec-031c80
+   member 4 priority 252
+   exit
+hostname "PNE-GDC-SWHP2920-stack03"
+encrypt-credentials
+console idle-timeout 600
+console idle-timeout serial-usb 600
+no rest-interface
+dhcp-snooping
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hdhcp-snooping authorized-server 172.24.47.42
+dhcp-snooping authorized-server 172.31.8.206
+no dhcp-snooping option 82
+trunk 1/45,2/45,4/45 trk1 lacp
+banner motd
+ "##############################################################################
+#####\n                                               **WARNING**\nThe
+ equipment now being accessed and information available through this equipment
+ is confidential and proprietary of Tata Motors Ltd. It may be accessed or used
+ only as specifically authorized. All other access or use is prohibited and is
+ subject to legal action!This system is for the use of authorized users only.
+ Individuals using this computer system without authority, or in excess of
+ their authority, are subject to having all of their activities on this system
+ monitored and recorded by system personnel. In the course of monitoring
+ individuals improperly using this system, or in the course of system
+ maintenance, the activities of authorized users may also be monitored. Anyone
+ using this system expressly consents to such monitoring and is advised that if
+ such monitoring reveals possible evidence of criminal activity, system
+ personnel may provide the evidence of such monitoring to law enforcement
+ officials\n####################################################################
+###############\n"
+logging 128.9.51.48
+logging notify running-config-change
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hradius-server host 172.22.88.13 encrypted-key
+ "5RmwMKlTpNghowi6VRsfGtxHnjMRLdbQXalPMFP592BH03lxBcfTHb/KQ97uKkTb"
+radius-server host 172.22.88.13 dyn-authorization
+radius-server host 172.22.88.13 time-window 0
+radius-server host 172.31.16.5 encrypted-key
+ "/mD69rFHk+T3cdUQNF4v321L9CVibaewpzS4nevX9zWAY8sIQfPnn9l2/v2iFL73"
+radius-server host 172.31.16.5 dyn-authorization
+radius-server host 172.31.16.5 time-window 0
+timesync sntp
+sntp unicast
+sntp 30
+sntp server priority 1 128.9.24.58
+ntp server 172.24.47.207
+ntp server 172.31.9.241 burst
+tacacs-server host 172.22.66.102
+tacacs-server host 172.22.66.101
+tacacs-server encrypted-key "LVGuPkf+Pa71n/tM86ta9rKwUtCE/uct4cRT0g5idwQ="
+no telnet-server
+time daylight-time-rule continental-us-and-canada
+time timezone 330
+no web-management
+ip access-list standard "50"
+     10 permit 128.9.52.48 255.255.255.255
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H     20 permit 128.9.31.101 255.255.255.255
+     30 permit 172.31.17.205 255.255.255.255
+     40 permit 172.31.16.159 255.255.255.255
+     50 permit 172.31.16.167 255.255.255.255
+     60 permit 172.31.16.166 255.255.255.255
+     70 permit 172.31.16.165 255.255.255.255
+   exit
+ip access-list standard "51"
+     10 permit 128.9.52.50 255.255.255.255
+     20 permit 172.31.16.159 255.255.255.255
+     30 permit 172.31.16.176 255.255.255.255
+   exit
+ip default-gateway 172.18.4.3
+no ip icmp redirects
+ip timep manual 172.31.9.241 interval 5
+ip route 0.0.0.0 0.0.0.0 172.18.4.3
+ip routing
+interface 1/1
+   dhcp-snooping trust
+   exit
+interface 1/2
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 1/3
+   dhcp-snooping trust
+   exit
+interface 1/4
+   dhcp-snooping trust
+   exit
+interface 1/5
+   dhcp-snooping trust
+   exit
+interface 1/6
+   dhcp-snooping trust
+   exit
+interface 1/7
+   dhcp-snooping trust
+   exit
+interface 1/8
+   dhcp-snooping trust
+   exit
+interface 1/9
+   dhcp-snooping trust
+   exit
+interface 1/10
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 1/11
+   dhcp-snooping trust
+   exit
+interface 1/12
+   dhcp-snooping trust
+   exit
+interface 1/13
+   dhcp-snooping trust
+   exit
+interface 1/14
+   dhcp-snooping trust
+   exit
+interface 1/15
+   dhcp-snooping trust
+   exit
+interface 1/16
+   dhcp-snooping trust
+   exit
+interface 1/17
+   dhcp-snooping trust
+   exit
+interface 1/18
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 1/19
+   dhcp-snooping trust
+   exit
+interface 1/20
+   dhcp-snooping trust
+   exit
+interface 1/21
+   dhcp-snooping trust
+   exit
+interface 1/22
+   dhcp-snooping trust
+   exit
+interface 1/23
+   dhcp-snooping trust
+   exit
+interface 1/24
+   dhcp-snooping trust
+   exit
+interface 1/25
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 1/26
+   dhcp-snooping trust
+   exit
+interface 1/27
+   dhcp-snooping trust
+   exit
+interface 1/28
+   dhcp-snooping trust
+   exit
+interface 1/29
+   dhcp-snooping trust
+   exit
+interface 1/30
+   dhcp-snooping trust
+   exit
+interface 1/31
+   dhcp-snooping trust
+   exit
+interface 1/32
+   dhcp-snooping trust
+   exit
+interface 1/33
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 1/34
+   dhcp-snooping trust
+   exit
+interface 1/35
+   dhcp-snooping trust
+   exit
+interface 1/36
+   dhcp-snooping trust
+   exit
+interface 1/37
+   dhcp-snooping trust
+   exit
+interface 1/38
+   dhcp-snooping trust
+   exit
+interface 1/39
+   dhcp-snooping trust
+   exit
+interface 1/40
+   dhcp-snooping trust
+   exit
+interface 1/41
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 1/42
+   dhcp-snooping trust
+   exit
+interface 1/43
+   dhcp-snooping trust
+   exit
+interface 1/44
+   dhcp-snooping trust
+   exit
+interface 1/46
+   dhcp-snooping trust
+   exit
+interface 1/47
+   dhcp-snooping trust
+   exit
+interface 1/48
+   dhcp-snooping trust
+   exit
+interface 2/1
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 2/2
+   dhcp-snooping trust
+   exit
+interface 2/3
+   dhcp-snooping trust
+   exit
+interface 2/4
+   dhcp-snooping trust
+   exit
+interface 2/5
+   dhcp-snooping trust
+   exit
+interface 2/6
+   dhcp-snooping trust
+   exit
+interface 2/7
+   dhcp-snooping trust
+   exit
+interface 2/8
+   dhcp-snooping trust
+   exit
+interface 2/9
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 2/10
+   dhcp-snooping trust
+   exit
+interface 2/11
+   dhcp-snooping trust
+   exit
+interface 2/12
+   dhcp-snooping trust
+   exit
+interface 2/13
+   dhcp-snooping trust
+   exit
+interface 2/14
+   dhcp-snooping trust
+   exit
+interface 2/15
+   dhcp-snooping trust
+   exit
+interface 2/16
+   dhcp-snooping trust
+   exit
+interface 2/17
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 2/18
+   dhcp-snooping trust
+   exit
+interface 2/19
+   dhcp-snooping trust
+   exit
+interface 2/20
+   dhcp-snooping trust
+   exit
+interface 2/21
+   dhcp-snooping trust
+   exit
+interface 2/22
+   dhcp-snooping trust
+   exit
+interface 2/23
+   dhcp-snooping trust
+   exit
+interface 2/24
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 2/25
+   dhcp-snooping trust
+   exit
+interface 2/26
+   dhcp-snooping trust
+   exit
+interface 2/27
+   dhcp-snooping trust
+   exit
+interface 2/28
+   dhcp-snooping trust
+   exit
+interface 2/29
+   dhcp-snooping trust
+   exit
+interface 2/30
+   dhcp-snooping trust
+   exit
+interface 2/31
+   dhcp-snooping trust
+   exit
+interface 2/32
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 2/33
+   dhcp-snooping trust
+   exit
+interface 2/34
+   dhcp-snooping trust
+   exit
+interface 2/35
+   dhcp-snooping trust
+   exit
+interface 2/36
+   dhcp-snooping trust
+   exit
+interface 2/37
+   dhcp-snooping trust
+   exit
+interface 2/38
+   dhcp-snooping trust
+   exit
+interface 2/39
+   dhcp-snooping trust
+   exit
+interface 2/40
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 2/41
+   dhcp-snooping trust
+   exit
+interface 2/42
+   dhcp-snooping trust
+   exit
+interface 2/43
+   dhcp-snooping trust
+   exit
+interface 2/44
+   dhcp-snooping trust
+   exit
+interface 2/46
+   dhcp-snooping trust
+   exit
+interface 2/47
+   dhcp-snooping trust
+   exit
+interface 2/48
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 3/1
+   dhcp-snooping trust
+   exit
+interface 3/2
+   dhcp-snooping trust
+   exit
+interface 3/3
+   dhcp-snooping trust
+   exit
+interface 3/4
+   dhcp-snooping trust
+   exit
+interface 3/5
+   dhcp-snooping trust
+   exit
+interface 3/6
+   dhcp-snooping trust
+   exit
+interface 3/7
+   dhcp-snooping trust
+   exit
+interface 3/8
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 3/9
+   dhcp-snooping trust
+   exit
+interface 3/10
+   dhcp-snooping trust
+   exit
+interface 3/11
+   dhcp-snooping trust
+   exit
+interface 3/12
+   dhcp-snooping trust
+   exit
+interface 3/13
+   dhcp-snooping trust
+   exit
+interface 3/14
+   dhcp-snooping trust
+   exit
+interface 3/15
+   dhcp-snooping trust
+   exit
+interface 3/16
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 3/17
+   dhcp-snooping trust
+   exit
+interface 3/18
+   dhcp-snooping trust
+   exit
+interface 3/19
+   dhcp-snooping trust
+   exit
+interface 3/20
+   dhcp-snooping trust
+   exit
+interface 3/21
+   dhcp-snooping trust
+   exit
+interface 3/22
+   dhcp-snooping trust
+   exit
+interface 3/23
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 3/24
+   dhcp-snooping trust
+   exit
+interface 3/25
+   dhcp-snooping trust
+   exit
+interface 3/26
+   dhcp-snooping trust
+   exit
+interface 3/27
+   dhcp-snooping trust
+   exit
+interface 3/28
+   dhcp-snooping trust
+   exit
+interface 3/29
+   dhcp-snooping trust
+   exit
+interface 3/30
+   dhcp-snooping trust
+   exit
+interface 3/31
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 3/32
+   dhcp-snooping trust
+   exit
+interface 3/33
+   dhcp-snooping trust
+   exit
+interface 3/34
+   dhcp-snooping trust
+   exit
+interface 3/35
+   dhcp-snooping trust
+   exit
+interface 3/36
+   dhcp-snooping trust
+   exit
+interface 3/37
+   dhcp-snooping trust
+   exit
+interface 3/38
+   dhcp-snooping trust
+   exit
+interface 3/39
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 3/40
+   dhcp-snooping trust
+   exit
+interface 3/41
+   dhcp-snooping trust
+   exit
+interface 3/42
+   dhcp-snooping trust
+   exit
+interface 3/43
+   dhcp-snooping trust
+   exit
+interface 3/44
+   dhcp-snooping trust
+   exit
+interface 3/46
+   dhcp-snooping trust
+   exit
+interface 3/47
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 3/48
+   dhcp-snooping trust
+   exit
+interface 4/1
+   dhcp-snooping trust
+   exit
+interface 4/2
+   dhcp-snooping trust
+   exit
+interface 4/3
+   dhcp-snooping trust
+   exit
+interface 4/4
+   dhcp-snooping trust
+   exit
+interface 4/5
+   dhcp-snooping trust
+   exit
+interface 4/6
+   dhcp-snooping trust
+   exit
+interface 4/7
+   dhcp-snooping trust
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 4/8
+   dhcp-snooping trust
+   exit
+interface 4/9
+   dhcp-snooping trust
+   exit
+interface 4/10
+   dhcp-snooping trust
+   exit
+interface 4/11
+   dhcp-snooping trust
+   exit
+interface 4/12
+   dhcp-snooping trust
+   exit
+interface 4/13
+   dhcp-snooping trust
+   exit
+interface 4/14
+   dhcp-snooping trust
+   exit
+interface 4/15
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 4/16
+   dhcp-snooping trust
+   exit
+interface 4/17
+   dhcp-snooping trust
+   exit
+interface 4/18
+   dhcp-snooping trust
+   exit
+interface 4/19
+   dhcp-snooping trust
+   exit
+interface 4/20
+   dhcp-snooping trust
+   exit
+interface 4/21
+   dhcp-snooping trust
+   exit
+interface 4/22
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 4/23
+   dhcp-snooping trust
+   exit
+interface 4/24
+   dhcp-snooping trust
+   exit
+interface 4/25
+   dhcp-snooping trust
+   exit
+interface 4/26
+   dhcp-snooping trust
+   exit
+interface 4/27
+   dhcp-snooping trust
+   name "172.18.9.14"
+   exit
+interface 4/28
+   dhcp-snooping trust
+   name "172.18.9.13"
+   exit
+interface 4/29
+   dhcp-snooping trust
+   name "172.18.9.12"
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+interface 4/30
+   dhcp-snooping trust
+   exit
+interface 4/31
+   dhcp-snooping trust
+   exit
+interface 4/32
+   dhcp-snooping trust
+   exit
+interface 4/33
+   dhcp-snooping trust
+   exit
+interface 4/34
+   dhcp-snooping trust
+   exit
+interface 4/35
+   dhcp-snooping trust
+   exit
+interface 4/36
+   dhcp-snooping trust
+   exit
+interface 4/38
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   dhcp-snooping trust
+   exit
+interface 4/39
+   dhcp-snooping trust
+   exit
+interface 4/40
+   dhcp-snooping trust
+   exit
+interface 4/41
+   dhcp-snooping trust
+   exit
+interface 4/42
+   dhcp-snooping trust
+   exit
+interface 4/43
+   dhcp-snooping trust
+   exit
+interface 4/44
+   dhcp-snooping trust
+   exit
+interface 4/46
+   dhcp-snooping trust
+   exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Hinterface 4/47
+   dhcp-snooping trust
+   exit
+snmp-server community "3qu!v@l3nt" operator
+snmp-server community "0mn!p0t3nt" operator unrestricted
+snmp-server host 128.9.52.50 community "0mn!p0t3nt"
+snmp-server host 172.31.16.176 community "0mn!p0t3nt"
+snmp-server host 128.9.52.48 community "3qu!v@l3nt"
+snmp-server host 172.27.128.96 community "3qu!v@l3nt"
+snmp-server host 172.31.16.159 community "3qu!v@l3nt"
+snmp-server host 172.31.16.165 community "3qu!v@l3nt"
+snmp-server host 172.31.16.166 community "3qu!v@l3nt"
+snmp-server host 172.31.16.167 community "3qu!v@l3nt"
+snmp-server host 172.31.17.205 community "3qu!v@l3nt"
+snmp-server enable traps mac-notify
+snmp-server enable traps snmp-authentication standard
+no snmp-server enable traps snmp-authentication extended
+snmp-server enable traps startup-config-change
+snmp-server response-source dst-ip-of-request
+snmpv3 enable
+snmpv3 group managerpriv user "NWS" sec-model ver3
+snmpv3 user "NWS"
+aaa server-group radius "CPPM" host 172.22.88.13
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa server-group radius "CPPM" host 172.31.16.5
+aaa server-group radius "CCPM" host 172.22.88.13
+aaa accounting update periodic 2
+aaa accounting exec start-stop tacacs
+aaa accounting network start-stop radius
+aaa accounting system start-stop tacacs
+aaa authorization commands tacacs
+aaa authentication login privilege-mode
+aaa authentication console login tacacs local
+aaa authentication console enable tacacs local
+aaa authentication telnet login tacacs local
+aaa authentication ssh login tacacs local
+aaa authentication ssh enable tacacs local
+aaa authentication port-access eap-radius
+aaa authentication web-based chap-radius server-group "CPPM"
+aaa authentication mac-based chap-radius server-group "CPPM"
+aaa authentication captive-portal enable
+aaa port-access authenticator
+ 1/1-1/44,1/46-1/48,2/1-2/44,2/46-2/48,3/1-3/48,4/1-4/10,4/12-4/15,4/17-4/26,4/3
+0-4/32,4/34-4/39,4/41-4/43,4/46-4/47
+aaa port-access authenticator 1/1 quiet-period 30
+aaa port-access authenticator 1/1 auth-vid 1
+aaa port-access authenticator 1/1 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/1 client-limit 1
+aaa port-access authenticator 1/2 quiet-period 30
+aaa port-access authenticator 1/2 auth-vid 1
+aaa port-access authenticator 1/2 logoff-period 862400
+aaa port-access authenticator 1/2 client-limit 1
+aaa port-access authenticator 1/3 quiet-period 30
+aaa port-access authenticator 1/3 auth-vid 1
+aaa port-access authenticator 1/3 logoff-period 862400
+aaa port-access authenticator 1/3 client-limit 1
+aaa port-access authenticator 1/4 quiet-period 30
+aaa port-access authenticator 1/4 auth-vid 1
+aaa port-access authenticator 1/4 logoff-period 862400
+aaa port-access authenticator 1/4 client-limit 1
+aaa port-access authenticator 1/5 quiet-period 30
+aaa port-access authenticator 1/5 auth-vid 1
+aaa port-access authenticator 1/5 logoff-period 862400
+aaa port-access authenticator 1/5 client-limit 1
+aaa port-access authenticator 1/6 quiet-period 30
+aaa port-access authenticator 1/6 auth-vid 1
+aaa port-access authenticator 1/6 logoff-period 862400
+aaa port-access authenticator 1/6 client-limit 1
+aaa port-access authenticator 1/7 quiet-period 30
+aaa port-access authenticator 1/7 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/7 logoff-period 862400
+aaa port-access authenticator 1/7 client-limit 1
+aaa port-access authenticator 1/8 quiet-period 30
+aaa port-access authenticator 1/8 auth-vid 1
+aaa port-access authenticator 1/8 logoff-period 862400
+aaa port-access authenticator 1/8 client-limit 1
+aaa port-access authenticator 1/9 quiet-period 30
+aaa port-access authenticator 1/9 auth-vid 1
+aaa port-access authenticator 1/9 logoff-period 862400
+aaa port-access authenticator 1/9 client-limit 1
+aaa port-access authenticator 1/10 quiet-period 30
+aaa port-access authenticator 1/10 auth-vid 1
+aaa port-access authenticator 1/10 logoff-period 862400
+aaa port-access authenticator 1/10 client-limit 1
+aaa port-access authenticator 1/11 quiet-period 30
+aaa port-access authenticator 1/11 auth-vid 1
+aaa port-access authenticator 1/11 logoff-period 862400
+aaa port-access authenticator 1/11 client-limit 1
+aaa port-access authenticator 1/12 quiet-period 30
+aaa port-access authenticator 1/12 auth-vid 1
+aaa port-access authenticator 1/12 logoff-period 862400
+aaa port-access authenticator 1/12 client-limit 1
+aaa port-access authenticator 1/13 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/13 auth-vid 1
+aaa port-access authenticator 1/13 logoff-period 862400
+aaa port-access authenticator 1/13 client-limit 1
+aaa port-access authenticator 1/14 quiet-period 30
+aaa port-access authenticator 1/14 auth-vid 1
+aaa port-access authenticator 1/14 logoff-period 862400
+aaa port-access authenticator 1/14 client-limit 1
+aaa port-access authenticator 1/15 quiet-period 30
+aaa port-access authenticator 1/15 auth-vid 1
+aaa port-access authenticator 1/15 logoff-period 862400
+aaa port-access authenticator 1/15 client-limit 1
+aaa port-access authenticator 1/16 quiet-period 30
+aaa port-access authenticator 1/16 auth-vid 1
+aaa port-access authenticator 1/16 logoff-period 862400
+aaa port-access authenticator 1/16 client-limit 1
+aaa port-access authenticator 1/17 quiet-period 30
+aaa port-access authenticator 1/17 auth-vid 1
+aaa port-access authenticator 1/17 logoff-period 862400
+aaa port-access authenticator 1/17 client-limit 1
+aaa port-access authenticator 1/18 quiet-period 30
+aaa port-access authenticator 1/18 auth-vid 1
+aaa port-access authenticator 1/18 logoff-period 862400
+aaa port-access authenticator 1/18 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/19 quiet-period 30
+aaa port-access authenticator 1/19 auth-vid 1
+aaa port-access authenticator 1/19 logoff-period 862400
+aaa port-access authenticator 1/19 client-limit 1
+aaa port-access authenticator 1/20 quiet-period 30
+aaa port-access authenticator 1/20 auth-vid 1
+aaa port-access authenticator 1/20 logoff-period 862400
+aaa port-access authenticator 1/20 client-limit 1
+aaa port-access authenticator 1/21 quiet-period 30
+aaa port-access authenticator 1/21 auth-vid 1
+aaa port-access authenticator 1/21 logoff-period 862400
+aaa port-access authenticator 1/21 client-limit 1
+aaa port-access authenticator 1/22 quiet-period 30
+aaa port-access authenticator 1/22 auth-vid 1
+aaa port-access authenticator 1/22 logoff-period 862400
+aaa port-access authenticator 1/22 client-limit 1
+aaa port-access authenticator 1/23 quiet-period 30
+aaa port-access authenticator 1/23 auth-vid 1
+aaa port-access authenticator 1/23 logoff-period 862400
+aaa port-access authenticator 1/23 client-limit 1
+aaa port-access authenticator 1/24 quiet-period 30
+aaa port-access authenticator 1/24 auth-vid 1
+aaa port-access authenticator 1/24 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/24 client-limit 1
+aaa port-access authenticator 1/25 quiet-period 30
+aaa port-access authenticator 1/25 auth-vid 1
+aaa port-access authenticator 1/25 logoff-period 862400
+aaa port-access authenticator 1/25 client-limit 1
+aaa port-access authenticator 1/26 quiet-period 30
+aaa port-access authenticator 1/26 auth-vid 1
+aaa port-access authenticator 1/26 logoff-period 862400
+aaa port-access authenticator 1/26 client-limit 1
+aaa port-access authenticator 1/27 quiet-period 30
+aaa port-access authenticator 1/27 auth-vid 1
+aaa port-access authenticator 1/27 logoff-period 862400
+aaa port-access authenticator 1/27 client-limit 1
+aaa port-access authenticator 1/28 quiet-period 30
+aaa port-access authenticator 1/28 auth-vid 1
+aaa port-access authenticator 1/28 logoff-period 862400
+aaa port-access authenticator 1/28 client-limit 1
+aaa port-access authenticator 1/29 quiet-period 30
+aaa port-access authenticator 1/29 auth-vid 1
+aaa port-access authenticator 1/29 logoff-period 862400
+aaa port-access authenticator 1/29 client-limit 1
+aaa port-access authenticator 1/30 quiet-period 30
+aaa port-access authenticator 1/30 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/30 logoff-period 862400
+aaa port-access authenticator 1/30 client-limit 1
+aaa port-access authenticator 1/31 quiet-period 30
+aaa port-access authenticator 1/31 auth-vid 1
+aaa port-access authenticator 1/31 logoff-period 862400
+aaa port-access authenticator 1/31 client-limit 1
+aaa port-access authenticator 1/32 quiet-period 30
+aaa port-access authenticator 1/32 auth-vid 1
+aaa port-access authenticator 1/32 logoff-period 862400
+aaa port-access authenticator 1/32 client-limit 1
+aaa port-access authenticator 1/33 quiet-period 30
+aaa port-access authenticator 1/33 auth-vid 1
+aaa port-access authenticator 1/33 logoff-period 862400
+aaa port-access authenticator 1/33 client-limit 1
+aaa port-access authenticator 1/34 quiet-period 30
+aaa port-access authenticator 1/34 auth-vid 1
+aaa port-access authenticator 1/34 logoff-period 862400
+aaa port-access authenticator 1/34 client-limit 1
+aaa port-access authenticator 1/35 quiet-period 30
+aaa port-access authenticator 1/35 auth-vid 1
+aaa port-access authenticator 1/35 logoff-period 862400
+aaa port-access authenticator 1/35 client-limit 1
+aaa port-access authenticator 1/36 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/36 auth-vid 1
+aaa port-access authenticator 1/36 logoff-period 862400
+aaa port-access authenticator 1/36 client-limit 1
+aaa port-access authenticator 1/37 quiet-period 30
+aaa port-access authenticator 1/37 auth-vid 1
+aaa port-access authenticator 1/37 logoff-period 862400
+aaa port-access authenticator 1/37 client-limit 1
+aaa port-access authenticator 1/38 quiet-period 30
+aaa port-access authenticator 1/38 auth-vid 1
+aaa port-access authenticator 1/38 logoff-period 862400
+aaa port-access authenticator 1/38 client-limit 1
+aaa port-access authenticator 1/39 quiet-period 30
+aaa port-access authenticator 1/39 auth-vid 1
+aaa port-access authenticator 1/39 logoff-period 862400
+aaa port-access authenticator 1/39 client-limit 1
+aaa port-access authenticator 1/40 quiet-period 30
+aaa port-access authenticator 1/40 auth-vid 1
+aaa port-access authenticator 1/40 logoff-period 862400
+aaa port-access authenticator 1/40 client-limit 1
+aaa port-access authenticator 1/41 quiet-period 30
+aaa port-access authenticator 1/41 auth-vid 1
+aaa port-access authenticator 1/41 logoff-period 862400
+aaa port-access authenticator 1/41 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/42 quiet-period 30
+aaa port-access authenticator 1/42 auth-vid 1
+aaa port-access authenticator 1/42 logoff-period 862400
+aaa port-access authenticator 1/42 client-limit 1
+aaa port-access authenticator 1/43 quiet-period 30
+aaa port-access authenticator 1/43 auth-vid 1
+aaa port-access authenticator 1/43 logoff-period 862400
+aaa port-access authenticator 1/43 client-limit 1
+aaa port-access authenticator 1/44 quiet-period 30
+aaa port-access authenticator 1/44 auth-vid 1
+aaa port-access authenticator 1/44 logoff-period 862400
+aaa port-access authenticator 1/44 client-limit 1
+aaa port-access authenticator 1/46 quiet-period 30
+aaa port-access authenticator 1/46 auth-vid 1
+aaa port-access authenticator 1/46 logoff-period 862400
+aaa port-access authenticator 1/46 client-limit 1
+aaa port-access authenticator 1/47 quiet-period 30
+aaa port-access authenticator 1/47 auth-vid 1
+aaa port-access authenticator 1/47 logoff-period 862400
+aaa port-access authenticator 1/47 client-limit 1
+aaa port-access authenticator 1/48 quiet-period 30
+aaa port-access authenticator 1/48 auth-vid 1
+aaa port-access authenticator 1/48 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 1/48 client-limit 1
+aaa port-access authenticator 2/1 quiet-period 30
+aaa port-access authenticator 2/1 auth-vid 1
+aaa port-access authenticator 2/1 logoff-period 862400
+aaa port-access authenticator 2/1 client-limit 1
+aaa port-access authenticator 2/2 quiet-period 30
+aaa port-access authenticator 2/2 auth-vid 1
+aaa port-access authenticator 2/2 logoff-period 862400
+aaa port-access authenticator 2/2 client-limit 1
+aaa port-access authenticator 2/3 quiet-period 30
+aaa port-access authenticator 2/3 auth-vid 1
+aaa port-access authenticator 2/3 logoff-period 862400
+aaa port-access authenticator 2/3 client-limit 1
+aaa port-access authenticator 2/4 quiet-period 30
+aaa port-access authenticator 2/4 auth-vid 1
+aaa port-access authenticator 2/4 logoff-period 862400
+aaa port-access authenticator 2/4 client-limit 1
+aaa port-access authenticator 2/5 quiet-period 30
+aaa port-access authenticator 2/5 auth-vid 1
+aaa port-access authenticator 2/5 logoff-period 862400
+aaa port-access authenticator 2/5 client-limit 1
+aaa port-access authenticator 2/6 quiet-period 30
+aaa port-access authenticator 2/6 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/6 logoff-period 862400
+aaa port-access authenticator 2/6 client-limit 1
+aaa port-access authenticator 2/7 quiet-period 30
+aaa port-access authenticator 2/7 auth-vid 1
+aaa port-access authenticator 2/7 logoff-period 862400
+aaa port-access authenticator 2/7 client-limit 1
+aaa port-access authenticator 2/8 quiet-period 30
+aaa port-access authenticator 2/8 auth-vid 1
+aaa port-access authenticator 2/8 logoff-period 862400
+aaa port-access authenticator 2/8 client-limit 1
+aaa port-access authenticator 2/9 quiet-period 30
+aaa port-access authenticator 2/9 auth-vid 1
+aaa port-access authenticator 2/9 logoff-period 862400
+aaa port-access authenticator 2/9 client-limit 1
+aaa port-access authenticator 2/10 quiet-period 30
+aaa port-access authenticator 2/10 auth-vid 1
+aaa port-access authenticator 2/10 logoff-period 862400
+aaa port-access authenticator 2/10 client-limit 1
+aaa port-access authenticator 2/11 quiet-period 30
+aaa port-access authenticator 2/11 auth-vid 1
+aaa port-access authenticator 2/11 logoff-period 862400
+aaa port-access authenticator 2/11 client-limit 1
+aaa port-access authenticator 2/12 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/12 auth-vid 1
+aaa port-access authenticator 2/12 logoff-period 862400
+aaa port-access authenticator 2/12 client-limit 1
+aaa port-access authenticator 2/13 quiet-period 30
+aaa port-access authenticator 2/13 auth-vid 1
+aaa port-access authenticator 2/13 logoff-period 862400
+aaa port-access authenticator 2/13 client-limit 1
+aaa port-access authenticator 2/14 quiet-period 30
+aaa port-access authenticator 2/14 auth-vid 1
+aaa port-access authenticator 2/14 logoff-period 862400
+aaa port-access authenticator 2/14 client-limit 1
+aaa port-access authenticator 2/15 quiet-period 30
+aaa port-access authenticator 2/15 auth-vid 1
+aaa port-access authenticator 2/15 logoff-period 862400
+aaa port-access authenticator 2/15 client-limit 1
+aaa port-access authenticator 2/16 quiet-period 30
+aaa port-access authenticator 2/16 auth-vid 1
+aaa port-access authenticator 2/16 logoff-period 862400
+aaa port-access authenticator 2/16 client-limit 1
+aaa port-access authenticator 2/17 quiet-period 30
+aaa port-access authenticator 2/17 auth-vid 1
+aaa port-access authenticator 2/17 logoff-period 862400
+aaa port-access authenticator 2/17 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/18 quiet-period 30
+aaa port-access authenticator 2/18 auth-vid 1
+aaa port-access authenticator 2/18 logoff-period 862400
+aaa port-access authenticator 2/18 client-limit 1
+aaa port-access authenticator 2/19 quiet-period 30
+aaa port-access authenticator 2/19 auth-vid 1
+aaa port-access authenticator 2/19 logoff-period 862400
+aaa port-access authenticator 2/19 client-limit 1
+aaa port-access authenticator 2/20 quiet-period 30
+aaa port-access authenticator 2/20 auth-vid 1
+aaa port-access authenticator 2/20 logoff-period 862400
+aaa port-access authenticator 2/20 client-limit 1
+aaa port-access authenticator 2/21 quiet-period 30
+aaa port-access authenticator 2/21 auth-vid 1
+aaa port-access authenticator 2/21 logoff-period 862400
+aaa port-access authenticator 2/21 client-limit 1
+aaa port-access authenticator 2/22 quiet-period 30
+aaa port-access authenticator 2/22 auth-vid 1
+aaa port-access authenticator 2/22 logoff-period 862400
+aaa port-access authenticator 2/22 client-limit 1
+aaa port-access authenticator 2/23 quiet-period 30
+aaa port-access authenticator 2/23 auth-vid 1
+aaa port-access authenticator 2/23 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/23 client-limit 1
+aaa port-access authenticator 2/24 quiet-period 30
+aaa port-access authenticator 2/24 auth-vid 1
+aaa port-access authenticator 2/24 logoff-period 862400
+aaa port-access authenticator 2/24 client-limit 1
+aaa port-access authenticator 2/25 quiet-period 30
+aaa port-access authenticator 2/25 auth-vid 1
+aaa port-access authenticator 2/25 logoff-period 862400
+aaa port-access authenticator 2/25 client-limit 1
+aaa port-access authenticator 2/26 quiet-period 30
+aaa port-access authenticator 2/26 auth-vid 1
+aaa port-access authenticator 2/26 logoff-period 862400
+aaa port-access authenticator 2/26 client-limit 1
+aaa port-access authenticator 2/27 quiet-period 30
+aaa port-access authenticator 2/27 auth-vid 1
+aaa port-access authenticator 2/27 logoff-period 862400
+aaa port-access authenticator 2/27 client-limit 1
+aaa port-access authenticator 2/28 quiet-period 30
+aaa port-access authenticator 2/28 auth-vid 1
+aaa port-access authenticator 2/28 logoff-period 862400
+aaa port-access authenticator 2/28 client-limit 1
+aaa port-access authenticator 2/29 quiet-period 30
+aaa port-access authenticator 2/29 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/29 logoff-period 862400
+aaa port-access authenticator 2/29 client-limit 1
+aaa port-access authenticator 2/30 quiet-period 30
+aaa port-access authenticator 2/30 auth-vid 1
+aaa port-access authenticator 2/30 logoff-period 862400
+aaa port-access authenticator 2/30 client-limit 1
+aaa port-access authenticator 2/31 quiet-period 30
+aaa port-access authenticator 2/31 auth-vid 1
+aaa port-access authenticator 2/31 logoff-period 862400
+aaa port-access authenticator 2/31 client-limit 1
+aaa port-access authenticator 2/32 quiet-period 30
+aaa port-access authenticator 2/32 auth-vid 1
+aaa port-access authenticator 2/32 logoff-period 862400
+aaa port-access authenticator 2/32 client-limit 1
+aaa port-access authenticator 2/33 quiet-period 30
+aaa port-access authenticator 2/33 auth-vid 1
+aaa port-access authenticator 2/33 logoff-period 862400
+aaa port-access authenticator 2/33 client-limit 1
+aaa port-access authenticator 2/34 quiet-period 30
+aaa port-access authenticator 2/34 auth-vid 1
+aaa port-access authenticator 2/34 logoff-period 862400
+aaa port-access authenticator 2/34 client-limit 1
+aaa port-access authenticator 2/35 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/35 auth-vid 1
+aaa port-access authenticator 2/35 logoff-period 862400
+aaa port-access authenticator 2/35 client-limit 1
+aaa port-access authenticator 2/36 quiet-period 30
+aaa port-access authenticator 2/36 auth-vid 1
+aaa port-access authenticator 2/36 logoff-period 862400
+aaa port-access authenticator 2/36 client-limit 1
+aaa port-access authenticator 2/37 quiet-period 30
+aaa port-access authenticator 2/37 auth-vid 1
+aaa port-access authenticator 2/37 logoff-period 862400
+aaa port-access authenticator 2/37 client-limit 1
+aaa port-access authenticator 2/38 quiet-period 30
+aaa port-access authenticator 2/38 auth-vid 1
+aaa port-access authenticator 2/38 logoff-period 862400
+aaa port-access authenticator 2/38 client-limit 1
+aaa port-access authenticator 2/39 quiet-period 30
+aaa port-access authenticator 2/39 auth-vid 1
+aaa port-access authenticator 2/39 logoff-period 862400
+aaa port-access authenticator 2/39 client-limit 1
+aaa port-access authenticator 2/40 quiet-period 30
+aaa port-access authenticator 2/40 auth-vid 1
+aaa port-access authenticator 2/40 logoff-period 862400
+aaa port-access authenticator 2/40 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/41 quiet-period 30
+aaa port-access authenticator 2/41 auth-vid 1
+aaa port-access authenticator 2/41 logoff-period 862400
+aaa port-access authenticator 2/41 client-limit 1
+aaa port-access authenticator 2/42 quiet-period 30
+aaa port-access authenticator 2/42 auth-vid 1
+aaa port-access authenticator 2/42 logoff-period 862400
+aaa port-access authenticator 2/42 client-limit 1
+aaa port-access authenticator 2/43 quiet-period 30
+aaa port-access authenticator 2/43 auth-vid 1
+aaa port-access authenticator 2/43 logoff-period 862400
+aaa port-access authenticator 2/43 client-limit 1
+aaa port-access authenticator 2/44 quiet-period 30
+aaa port-access authenticator 2/44 auth-vid 1
+aaa port-access authenticator 2/44 logoff-period 862400
+aaa port-access authenticator 2/44 client-limit 1
+aaa port-access authenticator 2/46 quiet-period 30
+aaa port-access authenticator 2/46 auth-vid 1
+aaa port-access authenticator 2/46 logoff-period 862400
+aaa port-access authenticator 2/46 client-limit 1
+aaa port-access authenticator 2/47 quiet-period 30
+aaa port-access authenticator 2/47 auth-vid 1
+aaa port-access authenticator 2/47 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 2/47 client-limit 1
+aaa port-access authenticator 2/48 quiet-period 30
+aaa port-access authenticator 2/48 auth-vid 1
+aaa port-access authenticator 2/48 logoff-period 862400
+aaa port-access authenticator 2/48 client-limit 1
+aaa port-access authenticator 3/1 quiet-period 30
+aaa port-access authenticator 3/1 auth-vid 1
+aaa port-access authenticator 3/1 logoff-period 862400
+aaa port-access authenticator 3/1 client-limit 1
+aaa port-access authenticator 3/2 quiet-period 30
+aaa port-access authenticator 3/2 auth-vid 1
+aaa port-access authenticator 3/2 logoff-period 862400
+aaa port-access authenticator 3/2 client-limit 1
+aaa port-access authenticator 3/3 quiet-period 30
+aaa port-access authenticator 3/3 auth-vid 1
+aaa port-access authenticator 3/3 logoff-period 862400
+aaa port-access authenticator 3/3 client-limit 1
+aaa port-access authenticator 3/4 quiet-period 30
+aaa port-access authenticator 3/4 auth-vid 1
+aaa port-access authenticator 3/4 logoff-period 862400
+aaa port-access authenticator 3/4 client-limit 1
+aaa port-access authenticator 3/5 quiet-period 30
+aaa port-access authenticator 3/5 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/5 logoff-period 862400
+aaa port-access authenticator 3/5 client-limit 1
+aaa port-access authenticator 3/6 quiet-period 30
+aaa port-access authenticator 3/6 auth-vid 1
+aaa port-access authenticator 3/6 logoff-period 862400
+aaa port-access authenticator 3/6 client-limit 1
+aaa port-access authenticator 3/7 quiet-period 30
+aaa port-access authenticator 3/7 auth-vid 1
+aaa port-access authenticator 3/7 logoff-period 862400
+aaa port-access authenticator 3/7 client-limit 1
+aaa port-access authenticator 3/8 quiet-period 30
+aaa port-access authenticator 3/8 auth-vid 1
+aaa port-access authenticator 3/8 logoff-period 862400
+aaa port-access authenticator 3/8 client-limit 1
+aaa port-access authenticator 3/9 quiet-period 30
+aaa port-access authenticator 3/9 auth-vid 1
+aaa port-access authenticator 3/9 logoff-period 862400
+aaa port-access authenticator 3/9 client-limit 1
+aaa port-access authenticator 3/10 quiet-period 30
+aaa port-access authenticator 3/10 auth-vid 1
+aaa port-access authenticator 3/10 logoff-period 862400
+aaa port-access authenticator 3/10 client-limit 1
+aaa port-access authenticator 3/11 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/11 auth-vid 1
+aaa port-access authenticator 3/11 logoff-period 862400
+aaa port-access authenticator 3/11 client-limit 1
+aaa port-access authenticator 3/12 quiet-period 30
+aaa port-access authenticator 3/12 auth-vid 1
+aaa port-access authenticator 3/12 logoff-period 862400
+aaa port-access authenticator 3/12 client-limit 1
+aaa port-access authenticator 3/13 quiet-period 30
+aaa port-access authenticator 3/13 auth-vid 1
+aaa port-access authenticator 3/13 logoff-period 862400
+aaa port-access authenticator 3/13 client-limit 1
+aaa port-access authenticator 3/14 quiet-period 30
+aaa port-access authenticator 3/14 auth-vid 1
+aaa port-access authenticator 3/14 logoff-period 862400
+aaa port-access authenticator 3/14 client-limit 1
+aaa port-access authenticator 3/15 quiet-period 30
+aaa port-access authenticator 3/15 auth-vid 1
+aaa port-access authenticator 3/15 logoff-period 862400
+aaa port-access authenticator 3/15 client-limit 1
+aaa port-access authenticator 3/16 quiet-period 30
+aaa port-access authenticator 3/16 auth-vid 1
+aaa port-access authenticator 3/16 logoff-period 862400
+aaa port-access authenticator 3/16 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/17 quiet-period 30
+aaa port-access authenticator 3/17 auth-vid 1
+aaa port-access authenticator 3/17 logoff-period 862400
+aaa port-access authenticator 3/17 client-limit 1
+aaa port-access authenticator 3/18 quiet-period 30
+aaa port-access authenticator 3/18 auth-vid 1
+aaa port-access authenticator 3/18 logoff-period 862400
+aaa port-access authenticator 3/18 client-limit 1
+aaa port-access authenticator 3/19 quiet-period 30
+aaa port-access authenticator 3/19 auth-vid 1
+aaa port-access authenticator 3/19 logoff-period 862400
+aaa port-access authenticator 3/19 client-limit 1
+aaa port-access authenticator 3/20 quiet-period 30
+aaa port-access authenticator 3/20 auth-vid 1
+aaa port-access authenticator 3/20 logoff-period 862400
+aaa port-access authenticator 3/20 client-limit 1
+aaa port-access authenticator 3/21 quiet-period 30
+aaa port-access authenticator 3/21 auth-vid 1
+aaa port-access authenticator 3/21 logoff-period 862400
+aaa port-access authenticator 3/21 client-limit 1
+aaa port-access authenticator 3/22 quiet-period 30
+aaa port-access authenticator 3/22 auth-vid 1
+aaa port-access authenticator 3/22 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/22 client-limit 1
+aaa port-access authenticator 3/23 quiet-period 30
+aaa port-access authenticator 3/23 auth-vid 1
+aaa port-access authenticator 3/23 logoff-period 862400
+aaa port-access authenticator 3/23 client-limit 1
+aaa port-access authenticator 3/24 quiet-period 30
+aaa port-access authenticator 3/24 auth-vid 1
+aaa port-access authenticator 3/24 logoff-period 862400
+aaa port-access authenticator 3/24 client-limit 1
+aaa port-access authenticator 3/25 quiet-period 30
+aaa port-access authenticator 3/25 auth-vid 1
+aaa port-access authenticator 3/25 logoff-period 862400
+aaa port-access authenticator 3/25 client-limit 1
+aaa port-access authenticator 3/26 quiet-period 30
+aaa port-access authenticator 3/26 auth-vid 1
+aaa port-access authenticator 3/26 logoff-period 862400
+aaa port-access authenticator 3/26 client-limit 1
+aaa port-access authenticator 3/27 quiet-period 30
+aaa port-access authenticator 3/27 auth-vid 1
+aaa port-access authenticator 3/27 logoff-period 862400
+aaa port-access authenticator 3/27 client-limit 1
+aaa port-access authenticator 3/28 quiet-period 30
+aaa port-access authenticator 3/28 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/28 logoff-period 862400
+aaa port-access authenticator 3/28 client-limit 1
+aaa port-access authenticator 3/29 quiet-period 30
+aaa port-access authenticator 3/29 auth-vid 1
+aaa port-access authenticator 3/29 logoff-period 862400
+aaa port-access authenticator 3/29 client-limit 1
+aaa port-access authenticator 3/30 quiet-period 30
+aaa port-access authenticator 3/30 auth-vid 1
+aaa port-access authenticator 3/30 logoff-period 862400
+aaa port-access authenticator 3/30 client-limit 1
+aaa port-access authenticator 3/31 quiet-period 30
+aaa port-access authenticator 3/31 auth-vid 1
+aaa port-access authenticator 3/31 logoff-period 862400
+aaa port-access authenticator 3/31 client-limit 1
+aaa port-access authenticator 3/32 quiet-period 30
+aaa port-access authenticator 3/32 auth-vid 1
+aaa port-access authenticator 3/32 logoff-period 862400
+aaa port-access authenticator 3/32 client-limit 1
+aaa port-access authenticator 3/33 quiet-period 30
+aaa port-access authenticator 3/33 auth-vid 1
+aaa port-access authenticator 3/33 logoff-period 862400
+aaa port-access authenticator 3/33 client-limit 1
+aaa port-access authenticator 3/34 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/34 auth-vid 1
+aaa port-access authenticator 3/34 logoff-period 862400
+aaa port-access authenticator 3/34 client-limit 1
+aaa port-access authenticator 3/35 quiet-period 30
+aaa port-access authenticator 3/35 auth-vid 1
+aaa port-access authenticator 3/35 logoff-period 862400
+aaa port-access authenticator 3/35 client-limit 1
+aaa port-access authenticator 3/36 quiet-period 30
+aaa port-access authenticator 3/36 auth-vid 1
+aaa port-access authenticator 3/36 logoff-period 862400
+aaa port-access authenticator 3/36 client-limit 1
+aaa port-access authenticator 3/37 quiet-period 30
+aaa port-access authenticator 3/37 auth-vid 1
+aaa port-access authenticator 3/37 logoff-period 862400
+aaa port-access authenticator 3/37 client-limit 1
+aaa port-access authenticator 3/38 quiet-period 30
+aaa port-access authenticator 3/38 auth-vid 1
+aaa port-access authenticator 3/38 logoff-period 862400
+aaa port-access authenticator 3/38 client-limit 1
+aaa port-access authenticator 3/39 quiet-period 30
+aaa port-access authenticator 3/39 auth-vid 1
+aaa port-access authenticator 3/39 logoff-period 862400
+aaa port-access authenticator 3/39 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/40 quiet-period 30
+aaa port-access authenticator 3/40 auth-vid 1
+aaa port-access authenticator 3/40 logoff-period 862400
+aaa port-access authenticator 3/40 client-limit 1
+aaa port-access authenticator 3/41 quiet-period 30
+aaa port-access authenticator 3/41 auth-vid 1
+aaa port-access authenticator 3/41 logoff-period 862400
+aaa port-access authenticator 3/41 client-limit 1
+aaa port-access authenticator 3/42 quiet-period 30
+aaa port-access authenticator 3/42 auth-vid 1
+aaa port-access authenticator 3/42 logoff-period 862400
+aaa port-access authenticator 3/42 client-limit 1
+aaa port-access authenticator 3/43 quiet-period 30
+aaa port-access authenticator 3/43 auth-vid 1
+aaa port-access authenticator 3/43 logoff-period 862400
+aaa port-access authenticator 3/43 client-limit 1
+aaa port-access authenticator 3/44 quiet-period 30
+aaa port-access authenticator 3/44 auth-vid 1
+aaa port-access authenticator 3/44 logoff-period 862400
+aaa port-access authenticator 3/44 client-limit 1
+aaa port-access authenticator 3/45 quiet-period 30
+aaa port-access authenticator 3/45 auth-vid 1
+aaa port-access authenticator 3/45 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 3/45 client-limit 1
+aaa port-access authenticator 3/46 quiet-period 30
+aaa port-access authenticator 3/46 auth-vid 1
+aaa port-access authenticator 3/46 logoff-period 862400
+aaa port-access authenticator 3/46 client-limit 1
+aaa port-access authenticator 3/47 quiet-period 30
+aaa port-access authenticator 3/47 auth-vid 1
+aaa port-access authenticator 3/47 logoff-period 862400
+aaa port-access authenticator 3/47 client-limit 1
+aaa port-access authenticator 3/48 quiet-period 30
+aaa port-access authenticator 3/48 auth-vid 1
+aaa port-access authenticator 3/48 logoff-period 862400
+aaa port-access authenticator 3/48 client-limit 1
+aaa port-access authenticator 4/1 quiet-period 30
+aaa port-access authenticator 4/1 auth-vid 1
+aaa port-access authenticator 4/1 logoff-period 862400
+aaa port-access authenticator 4/1 client-limit 1
+aaa port-access authenticator 4/2 quiet-period 30
+aaa port-access authenticator 4/2 auth-vid 1
+aaa port-access authenticator 4/2 logoff-period 862400
+aaa port-access authenticator 4/2 client-limit 1
+aaa port-access authenticator 4/3 quiet-period 30
+aaa port-access authenticator 4/3 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/3 logoff-period 862400
+aaa port-access authenticator 4/3 client-limit 1
+aaa port-access authenticator 4/4 quiet-period 30
+aaa port-access authenticator 4/4 auth-vid 1
+aaa port-access authenticator 4/4 logoff-period 862400
+aaa port-access authenticator 4/4 client-limit 1
+aaa port-access authenticator 4/5 quiet-period 30
+aaa port-access authenticator 4/5 auth-vid 1
+aaa port-access authenticator 4/5 logoff-period 862400
+aaa port-access authenticator 4/5 client-limit 1
+aaa port-access authenticator 4/6 quiet-period 30
+aaa port-access authenticator 4/6 auth-vid 1
+aaa port-access authenticator 4/6 logoff-period 862400
+aaa port-access authenticator 4/6 client-limit 1
+aaa port-access authenticator 4/7 quiet-period 30
+aaa port-access authenticator 4/7 auth-vid 1
+aaa port-access authenticator 4/7 logoff-period 862400
+aaa port-access authenticator 4/7 client-limit 1
+aaa port-access authenticator 4/8 quiet-period 30
+aaa port-access authenticator 4/8 auth-vid 1
+aaa port-access authenticator 4/8 logoff-period 862400
+aaa port-access authenticator 4/8 client-limit 1
+aaa port-access authenticator 4/9 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/9 auth-vid 1
+aaa port-access authenticator 4/9 logoff-period 862400
+aaa port-access authenticator 4/9 client-limit 1
+aaa port-access authenticator 4/10 quiet-period 30
+aaa port-access authenticator 4/10 auth-vid 1
+aaa port-access authenticator 4/10 logoff-period 862400
+aaa port-access authenticator 4/10 client-limit 1
+aaa port-access authenticator 4/11 quiet-period 30
+aaa port-access authenticator 4/11 auth-vid 1
+aaa port-access authenticator 4/11 logoff-period 862400
+aaa port-access authenticator 4/11 client-limit 1
+aaa port-access authenticator 4/12 quiet-period 30
+aaa port-access authenticator 4/12 auth-vid 1
+aaa port-access authenticator 4/12 logoff-period 862400
+aaa port-access authenticator 4/12 client-limit 1
+aaa port-access authenticator 4/13 quiet-period 30
+aaa port-access authenticator 4/13 auth-vid 1
+aaa port-access authenticator 4/13 logoff-period 862400
+aaa port-access authenticator 4/13 client-limit 1
+aaa port-access authenticator 4/14 quiet-period 30
+aaa port-access authenticator 4/14 auth-vid 1
+aaa port-access authenticator 4/14 logoff-period 862400
+aaa port-access authenticator 4/14 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/15 quiet-period 30
+aaa port-access authenticator 4/15 auth-vid 1
+aaa port-access authenticator 4/15 logoff-period 862400
+aaa port-access authenticator 4/15 client-limit 1
+aaa port-access authenticator 4/16 quiet-period 30
+aaa port-access authenticator 4/16 auth-vid 1
+aaa port-access authenticator 4/16 logoff-period 862400
+aaa port-access authenticator 4/16 client-limit 1
+aaa port-access authenticator 4/17 quiet-period 30
+aaa port-access authenticator 4/17 auth-vid 1
+aaa port-access authenticator 4/17 logoff-period 862400
+aaa port-access authenticator 4/17 client-limit 1
+aaa port-access authenticator 4/18 quiet-period 30
+aaa port-access authenticator 4/18 auth-vid 1
+aaa port-access authenticator 4/18 logoff-period 862400
+aaa port-access authenticator 4/18 client-limit 1
+aaa port-access authenticator 4/19 quiet-period 30
+aaa port-access authenticator 4/19 auth-vid 1
+aaa port-access authenticator 4/19 logoff-period 862400
+aaa port-access authenticator 4/19 client-limit 1
+aaa port-access authenticator 4/20 quiet-period 30
+aaa port-access authenticator 4/20 auth-vid 1
+aaa port-access authenticator 4/20 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/20 client-limit 1
+aaa port-access authenticator 4/21 quiet-period 30
+aaa port-access authenticator 4/21 auth-vid 1
+aaa port-access authenticator 4/21 logoff-period 862400
+aaa port-access authenticator 4/21 client-limit 1
+aaa port-access authenticator 4/22 quiet-period 30
+aaa port-access authenticator 4/22 auth-vid 1
+aaa port-access authenticator 4/22 logoff-period 862400
+aaa port-access authenticator 4/22 client-limit 1
+aaa port-access authenticator 4/23 quiet-period 30
+aaa port-access authenticator 4/23 auth-vid 1
+aaa port-access authenticator 4/23 logoff-period 862400
+aaa port-access authenticator 4/23 client-limit 1
+aaa port-access authenticator 4/24 quiet-period 30
+aaa port-access authenticator 4/24 auth-vid 1
+aaa port-access authenticator 4/24 logoff-period 862400
+aaa port-access authenticator 4/24 client-limit 1
+aaa port-access authenticator 4/25 quiet-period 30
+aaa port-access authenticator 4/25 auth-vid 1
+aaa port-access authenticator 4/25 logoff-period 862400
+aaa port-access authenticator 4/25 client-limit 1
+aaa port-access authenticator 4/26 quiet-period 30
+aaa port-access authenticator 4/26 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/26 logoff-period 862400
+aaa port-access authenticator 4/26 client-limit 1
+aaa port-access authenticator 4/30 quiet-period 30
+aaa port-access authenticator 4/30 auth-vid 1
+aaa port-access authenticator 4/30 logoff-period 862400
+aaa port-access authenticator 4/30 client-limit 1
+aaa port-access authenticator 4/31 quiet-period 30
+aaa port-access authenticator 4/31 auth-vid 1
+aaa port-access authenticator 4/31 logoff-period 862400
+aaa port-access authenticator 4/31 client-limit 1
+aaa port-access authenticator 4/32 quiet-period 30
+aaa port-access authenticator 4/32 auth-vid 1
+aaa port-access authenticator 4/32 logoff-period 862400
+aaa port-access authenticator 4/32 client-limit 1
+aaa port-access authenticator 4/33 quiet-period 30
+aaa port-access authenticator 4/33 auth-vid 1
+aaa port-access authenticator 4/33 logoff-period 862400
+aaa port-access authenticator 4/33 client-limit 1
+aaa port-access authenticator 4/34 quiet-period 30
+aaa port-access authenticator 4/34 auth-vid 1
+aaa port-access authenticator 4/34 logoff-period 862400
+aaa port-access authenticator 4/34 client-limit 1
+aaa port-access authenticator 4/35 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/35 auth-vid 1
+aaa port-access authenticator 4/35 logoff-period 862400
+aaa port-access authenticator 4/35 client-limit 1
+aaa port-access authenticator 4/36 quiet-period 30
+aaa port-access authenticator 4/36 auth-vid 1
+aaa port-access authenticator 4/36 logoff-period 862400
+aaa port-access authenticator 4/36 client-limit 1
+aaa port-access authenticator 4/37 quiet-period 30
+aaa port-access authenticator 4/37 auth-vid 1
+aaa port-access authenticator 4/37 logoff-period 862400
+aaa port-access authenticator 4/37 client-limit 1
+aaa port-access authenticator 4/38 quiet-period 30
+aaa port-access authenticator 4/38 auth-vid 1
+aaa port-access authenticator 4/38 logoff-period 862400
+aaa port-access authenticator 4/38 client-limit 1
+aaa port-access authenticator 4/39 quiet-period 30
+aaa port-access authenticator 4/39 auth-vid 1
+aaa port-access authenticator 4/39 logoff-period 862400
+aaa port-access authenticator 4/39 client-limit 1
+aaa port-access authenticator 4/40 quiet-period 30
+aaa port-access authenticator 4/40 auth-vid 1
+aaa port-access authenticator 4/40 logoff-period 862400
+aaa port-access authenticator 4/40 client-limit 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/41 quiet-period 30
+aaa port-access authenticator 4/41 auth-vid 1
+aaa port-access authenticator 4/41 logoff-period 862400
+aaa port-access authenticator 4/41 client-limit 1
+aaa port-access authenticator 4/42 quiet-period 30
+aaa port-access authenticator 4/42 auth-vid 1
+aaa port-access authenticator 4/42 logoff-period 862400
+aaa port-access authenticator 4/42 client-limit 1
+aaa port-access authenticator 4/43 quiet-period 30
+aaa port-access authenticator 4/43 auth-vid 1
+aaa port-access authenticator 4/43 logoff-period 862400
+aaa port-access authenticator 4/43 client-limit 1
+aaa port-access authenticator 4/44 quiet-period 30
+aaa port-access authenticator 4/44 auth-vid 1
+aaa port-access authenticator 4/44 logoff-period 862400
+aaa port-access authenticator 4/44 client-limit 1
+aaa port-access authenticator 4/46 quiet-period 30
+aaa port-access authenticator 4/46 auth-vid 1
+aaa port-access authenticator 4/46 logoff-period 862400
+aaa port-access authenticator 4/46 client-limit 1
+aaa port-access authenticator 4/47 quiet-period 30
+aaa port-access authenticator 4/47 auth-vid 1
+aaa port-access authenticator 4/47 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access authenticator 4/47 client-limit 1
+aaa port-access authenticator active
+aaa port-access mac-based
+ 1/1-1/44,1/46-1/48,2/1-2/44,2/46-2/48,3/1-3/48,4/1-4/10,4/12-4/15,4/17-4/18,4/2
+0-4/26,4/30-4/32,4/34-4/39,4/41-4/43,4/46-4/47
+aaa port-access mac-based 1/1 logoff-period 862400
+aaa port-access mac-based 1/1 quiet-period 30
+aaa port-access mac-based 1/1 auth-vid 1
+aaa port-access mac-based 1/2 logoff-period 862400
+aaa port-access mac-based 1/2 quiet-period 30
+aaa port-access mac-based 1/2 auth-vid 1
+aaa port-access mac-based 1/3 logoff-period 862400
+aaa port-access mac-based 1/3 quiet-period 30
+aaa port-access mac-based 1/3 auth-vid 1
+aaa port-access mac-based 1/4 logoff-period 862400
+aaa port-access mac-based 1/4 quiet-period 30
+aaa port-access mac-based 1/4 auth-vid 1
+aaa port-access mac-based 1/5 logoff-period 862400
+aaa port-access mac-based 1/5 quiet-period 30
+aaa port-access mac-based 1/5 auth-vid 1
+aaa port-access mac-based 1/6 logoff-period 862400
+aaa port-access mac-based 1/6 quiet-period 30
+aaa port-access mac-based 1/6 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/7 logoff-period 862400
+aaa port-access mac-based 1/7 quiet-period 30
+aaa port-access mac-based 1/7 auth-vid 1
+aaa port-access mac-based 1/8 logoff-period 862400
+aaa port-access mac-based 1/8 quiet-period 30
+aaa port-access mac-based 1/8 auth-vid 1
+aaa port-access mac-based 1/9 logoff-period 862400
+aaa port-access mac-based 1/9 quiet-period 30
+aaa port-access mac-based 1/9 auth-vid 1
+aaa port-access mac-based 1/10 logoff-period 862400
+aaa port-access mac-based 1/10 quiet-period 30
+aaa port-access mac-based 1/10 auth-vid 1
+aaa port-access mac-based 1/11 logoff-period 862400
+aaa port-access mac-based 1/11 quiet-period 30
+aaa port-access mac-based 1/11 auth-vid 1
+aaa port-access mac-based 1/12 logoff-period 862400
+aaa port-access mac-based 1/12 quiet-period 30
+aaa port-access mac-based 1/12 auth-vid 1
+aaa port-access mac-based 1/13 logoff-period 862400
+aaa port-access mac-based 1/13 quiet-period 30
+aaa port-access mac-based 1/13 auth-vid 1
+aaa port-access mac-based 1/14 logoff-period 862400
+aaa port-access mac-based 1/14 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/14 auth-vid 1
+aaa port-access mac-based 1/15 logoff-period 862400
+aaa port-access mac-based 1/15 quiet-period 30
+aaa port-access mac-based 1/15 auth-vid 1
+aaa port-access mac-based 1/16 logoff-period 862400
+aaa port-access mac-based 1/16 quiet-period 30
+aaa port-access mac-based 1/16 auth-vid 1
+aaa port-access mac-based 1/17 logoff-period 862400
+aaa port-access mac-based 1/17 quiet-period 30
+aaa port-access mac-based 1/17 auth-vid 1
+aaa port-access mac-based 1/18 logoff-period 862400
+aaa port-access mac-based 1/18 quiet-period 30
+aaa port-access mac-based 1/18 auth-vid 1
+aaa port-access mac-based 1/19 logoff-period 862400
+aaa port-access mac-based 1/19 quiet-period 30
+aaa port-access mac-based 1/19 auth-vid 1
+aaa port-access mac-based 1/20 logoff-period 862400
+aaa port-access mac-based 1/20 quiet-period 30
+aaa port-access mac-based 1/20 auth-vid 1
+aaa port-access mac-based 1/21 logoff-period 862400
+aaa port-access mac-based 1/21 quiet-period 30
+aaa port-access mac-based 1/21 auth-vid 1
+aaa port-access mac-based 1/22 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/22 quiet-period 30
+aaa port-access mac-based 1/22 auth-vid 1
+aaa port-access mac-based 1/23 logoff-period 862400
+aaa port-access mac-based 1/23 quiet-period 30
+aaa port-access mac-based 1/23 auth-vid 1
+aaa port-access mac-based 1/24 logoff-period 862400
+aaa port-access mac-based 1/24 quiet-period 30
+aaa port-access mac-based 1/24 auth-vid 1
+aaa port-access mac-based 1/25 logoff-period 862400
+aaa port-access mac-based 1/25 quiet-period 30
+aaa port-access mac-based 1/25 auth-vid 1
+aaa port-access mac-based 1/26 logoff-period 862400
+aaa port-access mac-based 1/26 quiet-period 30
+aaa port-access mac-based 1/26 auth-vid 1
+aaa port-access mac-based 1/27 logoff-period 862400
+aaa port-access mac-based 1/27 quiet-period 30
+aaa port-access mac-based 1/27 auth-vid 1
+aaa port-access mac-based 1/28 logoff-period 862400
+aaa port-access mac-based 1/28 quiet-period 30
+aaa port-access mac-based 1/28 auth-vid 1
+aaa port-access mac-based 1/29 logoff-period 862400
+aaa port-access mac-based 1/29 quiet-period 30
+aaa port-access mac-based 1/29 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/30 logoff-period 862400
+aaa port-access mac-based 1/30 quiet-period 30
+aaa port-access mac-based 1/30 auth-vid 1
+aaa port-access mac-based 1/31 logoff-period 862400
+aaa port-access mac-based 1/31 quiet-period 30
+aaa port-access mac-based 1/31 auth-vid 1
+aaa port-access mac-based 1/32 logoff-period 862400
+aaa port-access mac-based 1/32 quiet-period 30
+aaa port-access mac-based 1/32 auth-vid 1
+aaa port-access mac-based 1/33 logoff-period 862400
+aaa port-access mac-based 1/33 quiet-period 30
+aaa port-access mac-based 1/33 auth-vid 1
+aaa port-access mac-based 1/34 logoff-period 862400
+aaa port-access mac-based 1/34 quiet-period 30
+aaa port-access mac-based 1/34 auth-vid 1
+aaa port-access mac-based 1/35 logoff-period 862400
+aaa port-access mac-based 1/35 quiet-period 30
+aaa port-access mac-based 1/35 auth-vid 1
+aaa port-access mac-based 1/36 logoff-period 862400
+aaa port-access mac-based 1/36 quiet-period 30
+aaa port-access mac-based 1/36 auth-vid 1
+aaa port-access mac-based 1/37 logoff-period 862400
+aaa port-access mac-based 1/37 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/37 auth-vid 1
+aaa port-access mac-based 1/38 logoff-period 862400
+aaa port-access mac-based 1/38 quiet-period 30
+aaa port-access mac-based 1/38 auth-vid 1
+aaa port-access mac-based 1/39 logoff-period 862400
+aaa port-access mac-based 1/39 quiet-period 30
+aaa port-access mac-based 1/39 auth-vid 1
+aaa port-access mac-based 1/40 logoff-period 862400
+aaa port-access mac-based 1/40 quiet-period 30
+aaa port-access mac-based 1/40 auth-vid 1
+aaa port-access mac-based 1/41 logoff-period 862400
+aaa port-access mac-based 1/41 quiet-period 30
+aaa port-access mac-based 1/41 auth-vid 1
+aaa port-access mac-based 1/42 logoff-period 862400
+aaa port-access mac-based 1/42 quiet-period 30
+aaa port-access mac-based 1/42 auth-vid 1
+aaa port-access mac-based 1/43 logoff-period 862400
+aaa port-access mac-based 1/43 quiet-period 30
+aaa port-access mac-based 1/43 auth-vid 1
+aaa port-access mac-based 1/44 logoff-period 862400
+aaa port-access mac-based 1/44 quiet-period 30
+aaa port-access mac-based 1/44 auth-vid 1
+aaa port-access mac-based 1/46 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 1/46 quiet-period 30
+aaa port-access mac-based 1/46 auth-vid 1
+aaa port-access mac-based 1/47 logoff-period 862400
+aaa port-access mac-based 1/47 quiet-period 30
+aaa port-access mac-based 1/47 auth-vid 1
+aaa port-access mac-based 1/48 logoff-period 862400
+aaa port-access mac-based 1/48 quiet-period 30
+aaa port-access mac-based 1/48 auth-vid 1
+aaa port-access mac-based 2/1 logoff-period 862400
+aaa port-access mac-based 2/1 quiet-period 30
+aaa port-access mac-based 2/1 auth-vid 1
+aaa port-access mac-based 2/2 logoff-period 862400
+aaa port-access mac-based 2/2 quiet-period 30
+aaa port-access mac-based 2/2 auth-vid 1
+aaa port-access mac-based 2/3 logoff-period 862400
+aaa port-access mac-based 2/3 quiet-period 30
+aaa port-access mac-based 2/3 auth-vid 1
+aaa port-access mac-based 2/4 logoff-period 862400
+aaa port-access mac-based 2/4 quiet-period 30
+aaa port-access mac-based 2/4 auth-vid 1
+aaa port-access mac-based 2/5 logoff-period 862400
+aaa port-access mac-based 2/5 quiet-period 30
+aaa port-access mac-based 2/5 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/6 logoff-period 862400
+aaa port-access mac-based 2/6 quiet-period 30
+aaa port-access mac-based 2/6 auth-vid 1
+aaa port-access mac-based 2/7 logoff-period 862400
+aaa port-access mac-based 2/7 quiet-period 30
+aaa port-access mac-based 2/7 auth-vid 1
+aaa port-access mac-based 2/8 logoff-period 862400
+aaa port-access mac-based 2/8 quiet-period 30
+aaa port-access mac-based 2/8 auth-vid 1
+aaa port-access mac-based 2/9 logoff-period 862400
+aaa port-access mac-based 2/9 quiet-period 30
+aaa port-access mac-based 2/9 auth-vid 1
+aaa port-access mac-based 2/10 logoff-period 862400
+aaa port-access mac-based 2/10 quiet-period 30
+aaa port-access mac-based 2/10 auth-vid 1
+aaa port-access mac-based 2/11 logoff-period 862400
+aaa port-access mac-based 2/11 quiet-period 30
+aaa port-access mac-based 2/11 auth-vid 1
+aaa port-access mac-based 2/12 logoff-period 862400
+aaa port-access mac-based 2/12 quiet-period 30
+aaa port-access mac-based 2/12 auth-vid 1
+aaa port-access mac-based 2/13 logoff-period 862400
+aaa port-access mac-based 2/13 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/13 auth-vid 1
+aaa port-access mac-based 2/14 logoff-period 862400
+aaa port-access mac-based 2/14 quiet-period 30
+aaa port-access mac-based 2/14 auth-vid 1
+aaa port-access mac-based 2/15 logoff-period 862400
+aaa port-access mac-based 2/15 quiet-period 30
+aaa port-access mac-based 2/15 auth-vid 1
+aaa port-access mac-based 2/16 logoff-period 862400
+aaa port-access mac-based 2/16 quiet-period 30
+aaa port-access mac-based 2/16 auth-vid 1
+aaa port-access mac-based 2/17 logoff-period 862400
+aaa port-access mac-based 2/17 quiet-period 30
+aaa port-access mac-based 2/17 auth-vid 1
+aaa port-access mac-based 2/18 logoff-period 862400
+aaa port-access mac-based 2/18 quiet-period 30
+aaa port-access mac-based 2/18 auth-vid 1
+aaa port-access mac-based 2/19 logoff-period 862400
+aaa port-access mac-based 2/19 quiet-period 30
+aaa port-access mac-based 2/19 auth-vid 1
+aaa port-access mac-based 2/20 logoff-period 862400
+aaa port-access mac-based 2/20 quiet-period 30
+aaa port-access mac-based 2/20 auth-vid 1
+aaa port-access mac-based 2/21 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/21 quiet-period 30
+aaa port-access mac-based 2/21 auth-vid 1
+aaa port-access mac-based 2/22 logoff-period 862400
+aaa port-access mac-based 2/22 quiet-period 30
+aaa port-access mac-based 2/22 auth-vid 1
+aaa port-access mac-based 2/23 logoff-period 862400
+aaa port-access mac-based 2/23 quiet-period 30
+aaa port-access mac-based 2/23 auth-vid 1
+aaa port-access mac-based 2/24 logoff-period 862400
+aaa port-access mac-based 2/24 quiet-period 30
+aaa port-access mac-based 2/24 auth-vid 1
+aaa port-access mac-based 2/25 logoff-period 862400
+aaa port-access mac-based 2/25 quiet-period 30
+aaa port-access mac-based 2/25 auth-vid 1
+aaa port-access mac-based 2/26 logoff-period 862400
+aaa port-access mac-based 2/26 quiet-period 30
+aaa port-access mac-based 2/26 auth-vid 1
+aaa port-access mac-based 2/27 logoff-period 862400
+aaa port-access mac-based 2/27 quiet-period 30
+aaa port-access mac-based 2/27 auth-vid 1
+aaa port-access mac-based 2/28 logoff-period 862400
+aaa port-access mac-based 2/28 quiet-period 30
+aaa port-access mac-based 2/28 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/29 logoff-period 862400
+aaa port-access mac-based 2/29 quiet-period 30
+aaa port-access mac-based 2/29 auth-vid 1
+aaa port-access mac-based 2/30 logoff-period 862400
+aaa port-access mac-based 2/30 quiet-period 30
+aaa port-access mac-based 2/30 auth-vid 1
+aaa port-access mac-based 2/31 logoff-period 862400
+aaa port-access mac-based 2/31 quiet-period 30
+aaa port-access mac-based 2/31 auth-vid 1
+aaa port-access mac-based 2/32 logoff-period 862400
+aaa port-access mac-based 2/32 quiet-period 30
+aaa port-access mac-based 2/32 auth-vid 1
+aaa port-access mac-based 2/33 logoff-period 862400
+aaa port-access mac-based 2/33 quiet-period 30
+aaa port-access mac-based 2/33 auth-vid 1
+aaa port-access mac-based 2/34 logoff-period 862400
+aaa port-access mac-based 2/34 quiet-period 30
+aaa port-access mac-based 2/34 auth-vid 1
+aaa port-access mac-based 2/35 logoff-period 862400
+aaa port-access mac-based 2/35 quiet-period 30
+aaa port-access mac-based 2/35 auth-vid 1
+aaa port-access mac-based 2/36 logoff-period 862400
+aaa port-access mac-based 2/36 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/36 auth-vid 1
+aaa port-access mac-based 2/37 logoff-period 862400
+aaa port-access mac-based 2/37 quiet-period 30
+aaa port-access mac-based 2/37 auth-vid 1
+aaa port-access mac-based 2/38 logoff-period 862400
+aaa port-access mac-based 2/38 quiet-period 30
+aaa port-access mac-based 2/38 auth-vid 1
+aaa port-access mac-based 2/39 logoff-period 862400
+aaa port-access mac-based 2/39 quiet-period 30
+aaa port-access mac-based 2/39 auth-vid 1
+aaa port-access mac-based 2/40 logoff-period 862400
+aaa port-access mac-based 2/40 quiet-period 30
+aaa port-access mac-based 2/40 auth-vid 1
+aaa port-access mac-based 2/41 logoff-period 862400
+aaa port-access mac-based 2/41 quiet-period 30
+aaa port-access mac-based 2/41 auth-vid 1
+aaa port-access mac-based 2/42 logoff-period 862400
+aaa port-access mac-based 2/42 quiet-period 30
+aaa port-access mac-based 2/42 auth-vid 1
+aaa port-access mac-based 2/43 logoff-period 862400
+aaa port-access mac-based 2/43 quiet-period 30
+aaa port-access mac-based 2/43 auth-vid 1
+aaa port-access mac-based 2/44 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 2/44 quiet-period 30
+aaa port-access mac-based 2/44 auth-vid 1
+aaa port-access mac-based 2/46 logoff-period 862400
+aaa port-access mac-based 2/46 quiet-period 30
+aaa port-access mac-based 2/46 auth-vid 1
+aaa port-access mac-based 2/47 logoff-period 862400
+aaa port-access mac-based 2/47 quiet-period 30
+aaa port-access mac-based 2/47 auth-vid 1
+aaa port-access mac-based 2/48 logoff-period 862400
+aaa port-access mac-based 2/48 quiet-period 30
+aaa port-access mac-based 2/48 auth-vid 1
+aaa port-access mac-based 3/1 logoff-period 862400
+aaa port-access mac-based 3/1 quiet-period 30
+aaa port-access mac-based 3/1 auth-vid 1
+aaa port-access mac-based 3/2 logoff-period 862400
+aaa port-access mac-based 3/2 quiet-period 30
+aaa port-access mac-based 3/2 auth-vid 1
+aaa port-access mac-based 3/3 logoff-period 862400
+aaa port-access mac-based 3/3 quiet-period 30
+aaa port-access mac-based 3/3 auth-vid 1
+aaa port-access mac-based 3/4 logoff-period 862400
+aaa port-access mac-based 3/4 quiet-period 30
+aaa port-access mac-based 3/4 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/5 logoff-period 862400
+aaa port-access mac-based 3/5 quiet-period 30
+aaa port-access mac-based 3/5 auth-vid 1
+aaa port-access mac-based 3/6 logoff-period 862400
+aaa port-access mac-based 3/6 quiet-period 30
+aaa port-access mac-based 3/6 auth-vid 1
+aaa port-access mac-based 3/7 logoff-period 862400
+aaa port-access mac-based 3/7 quiet-period 30
+aaa port-access mac-based 3/7 auth-vid 1
+aaa port-access mac-based 3/8 logoff-period 862400
+aaa port-access mac-based 3/8 quiet-period 30
+aaa port-access mac-based 3/8 auth-vid 1
+aaa port-access mac-based 3/9 logoff-period 862400
+aaa port-access mac-based 3/9 quiet-period 30
+aaa port-access mac-based 3/9 auth-vid 1
+aaa port-access mac-based 3/10 logoff-period 862400
+aaa port-access mac-based 3/10 quiet-period 30
+aaa port-access mac-based 3/10 auth-vid 1
+aaa port-access mac-based 3/11 logoff-period 862400
+aaa port-access mac-based 3/11 quiet-period 30
+aaa port-access mac-based 3/11 auth-vid 1
+aaa port-access mac-based 3/12 logoff-period 862400
+aaa port-access mac-based 3/12 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/12 auth-vid 1
+aaa port-access mac-based 3/13 logoff-period 862400
+aaa port-access mac-based 3/13 quiet-period 30
+aaa port-access mac-based 3/13 auth-vid 1
+aaa port-access mac-based 3/14 logoff-period 862400
+aaa port-access mac-based 3/14 quiet-period 30
+aaa port-access mac-based 3/14 auth-vid 1
+aaa port-access mac-based 3/15 logoff-period 862400
+aaa port-access mac-based 3/15 quiet-period 30
+aaa port-access mac-based 3/15 auth-vid 1
+aaa port-access mac-based 3/16 logoff-period 862400
+aaa port-access mac-based 3/16 quiet-period 30
+aaa port-access mac-based 3/16 auth-vid 1
+aaa port-access mac-based 3/17 logoff-period 862400
+aaa port-access mac-based 3/17 quiet-period 30
+aaa port-access mac-based 3/17 auth-vid 1
+aaa port-access mac-based 3/18 logoff-period 862400
+aaa port-access mac-based 3/18 quiet-period 30
+aaa port-access mac-based 3/18 auth-vid 1
+aaa port-access mac-based 3/19 logoff-period 862400
+aaa port-access mac-based 3/19 quiet-period 30
+aaa port-access mac-based 3/19 auth-vid 1
+aaa port-access mac-based 3/20 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/20 quiet-period 30
+aaa port-access mac-based 3/20 auth-vid 1
+aaa port-access mac-based 3/21 logoff-period 862400
+aaa port-access mac-based 3/21 quiet-period 30
+aaa port-access mac-based 3/21 auth-vid 1
+aaa port-access mac-based 3/22 logoff-period 862400
+aaa port-access mac-based 3/22 quiet-period 30
+aaa port-access mac-based 3/22 auth-vid 1
+aaa port-access mac-based 3/23 logoff-period 862400
+aaa port-access mac-based 3/23 quiet-period 30
+aaa port-access mac-based 3/23 auth-vid 1
+aaa port-access mac-based 3/24 logoff-period 862400
+aaa port-access mac-based 3/24 quiet-period 30
+aaa port-access mac-based 3/24 auth-vid 1
+aaa port-access mac-based 3/25 logoff-period 862400
+aaa port-access mac-based 3/25 quiet-period 30
+aaa port-access mac-based 3/25 auth-vid 1
+aaa port-access mac-based 3/26 logoff-period 862400
+aaa port-access mac-based 3/26 quiet-period 30
+aaa port-access mac-based 3/26 auth-vid 1
+aaa port-access mac-based 3/27 logoff-period 862400
+aaa port-access mac-based 3/27 quiet-period 30
+aaa port-access mac-based 3/27 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/28 logoff-period 862400
+aaa port-access mac-based 3/28 quiet-period 30
+aaa port-access mac-based 3/28 auth-vid 1
+aaa port-access mac-based 3/29 logoff-period 862400
+aaa port-access mac-based 3/29 quiet-period 30
+aaa port-access mac-based 3/29 auth-vid 1
+aaa port-access mac-based 3/30 logoff-period 862400
+aaa port-access mac-based 3/30 quiet-period 30
+aaa port-access mac-based 3/30 auth-vid 1
+aaa port-access mac-based 3/31 logoff-period 862400
+aaa port-access mac-based 3/31 quiet-period 30
+aaa port-access mac-based 3/31 auth-vid 1
+aaa port-access mac-based 3/32 logoff-period 862400
+aaa port-access mac-based 3/32 quiet-period 30
+aaa port-access mac-based 3/32 auth-vid 1
+aaa port-access mac-based 3/33 logoff-period 862400
+aaa port-access mac-based 3/33 quiet-period 30
+aaa port-access mac-based 3/33 auth-vid 1
+aaa port-access mac-based 3/34 logoff-period 862400
+aaa port-access mac-based 3/34 quiet-period 30
+aaa port-access mac-based 3/34 auth-vid 1
+aaa port-access mac-based 3/35 logoff-period 862400
+aaa port-access mac-based 3/35 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/35 auth-vid 1
+aaa port-access mac-based 3/36 logoff-period 862400
+aaa port-access mac-based 3/36 quiet-period 30
+aaa port-access mac-based 3/36 auth-vid 1
+aaa port-access mac-based 3/37 logoff-period 862400
+aaa port-access mac-based 3/37 quiet-period 30
+aaa port-access mac-based 3/37 auth-vid 1
+aaa port-access mac-based 3/38 logoff-period 862400
+aaa port-access mac-based 3/38 quiet-period 30
+aaa port-access mac-based 3/38 auth-vid 1
+aaa port-access mac-based 3/39 logoff-period 862400
+aaa port-access mac-based 3/39 quiet-period 30
+aaa port-access mac-based 3/39 auth-vid 1
+aaa port-access mac-based 3/40 logoff-period 862400
+aaa port-access mac-based 3/40 quiet-period 30
+aaa port-access mac-based 3/40 auth-vid 1
+aaa port-access mac-based 3/41 logoff-period 862400
+aaa port-access mac-based 3/41 quiet-period 30
+aaa port-access mac-based 3/41 auth-vid 1
+aaa port-access mac-based 3/42 logoff-period 862400
+aaa port-access mac-based 3/42 quiet-period 30
+aaa port-access mac-based 3/42 auth-vid 1
+aaa port-access mac-based 3/43 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 3/43 quiet-period 30
+aaa port-access mac-based 3/43 auth-vid 1
+aaa port-access mac-based 3/44 logoff-period 862400
+aaa port-access mac-based 3/44 quiet-period 30
+aaa port-access mac-based 3/44 auth-vid 1
+aaa port-access mac-based 3/45 logoff-period 862400
+aaa port-access mac-based 3/45 quiet-period 30
+aaa port-access mac-based 3/45 auth-vid 1
+aaa port-access mac-based 3/46 logoff-period 862400
+aaa port-access mac-based 3/46 quiet-period 30
+aaa port-access mac-based 3/46 auth-vid 1
+aaa port-access mac-based 3/47 logoff-period 862400
+aaa port-access mac-based 3/47 quiet-period 30
+aaa port-access mac-based 3/47 auth-vid 1
+aaa port-access mac-based 3/48 logoff-period 862400
+aaa port-access mac-based 3/48 quiet-period 30
+aaa port-access mac-based 3/48 auth-vid 1
+aaa port-access mac-based 4/1 logoff-period 862400
+aaa port-access mac-based 4/1 quiet-period 30
+aaa port-access mac-based 4/1 auth-vid 1
+aaa port-access mac-based 4/2 logoff-period 862400
+aaa port-access mac-based 4/2 quiet-period 30
+aaa port-access mac-based 4/2 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/3 logoff-period 862400
+aaa port-access mac-based 4/3 quiet-period 30
+aaa port-access mac-based 4/3 auth-vid 1
+aaa port-access mac-based 4/4 logoff-period 862400
+aaa port-access mac-based 4/4 quiet-period 30
+aaa port-access mac-based 4/4 auth-vid 1
+aaa port-access mac-based 4/5 logoff-period 862400
+aaa port-access mac-based 4/5 quiet-period 30
+aaa port-access mac-based 4/5 auth-vid 1
+aaa port-access mac-based 4/6 logoff-period 862400
+aaa port-access mac-based 4/6 quiet-period 30
+aaa port-access mac-based 4/6 auth-vid 1
+aaa port-access mac-based 4/7 logoff-period 862400
+aaa port-access mac-based 4/7 quiet-period 30
+aaa port-access mac-based 4/7 auth-vid 1
+aaa port-access mac-based 4/8 logoff-period 862400
+aaa port-access mac-based 4/8 quiet-period 30
+aaa port-access mac-based 4/8 auth-vid 1
+aaa port-access mac-based 4/9 logoff-period 862400
+aaa port-access mac-based 4/9 quiet-period 30
+aaa port-access mac-based 4/9 auth-vid 1
+aaa port-access mac-based 4/10 logoff-period 862400
+aaa port-access mac-based 4/10 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/10 auth-vid 1
+aaa port-access mac-based 4/11 logoff-period 862400
+aaa port-access mac-based 4/11 quiet-period 30
+aaa port-access mac-based 4/11 auth-vid 1
+aaa port-access mac-based 4/12 logoff-period 862400
+aaa port-access mac-based 4/12 quiet-period 30
+aaa port-access mac-based 4/12 auth-vid 1
+aaa port-access mac-based 4/13 logoff-period 862400
+aaa port-access mac-based 4/13 quiet-period 30
+aaa port-access mac-based 4/13 auth-vid 1
+aaa port-access mac-based 4/14 logoff-period 862400
+aaa port-access mac-based 4/14 quiet-period 30
+aaa port-access mac-based 4/14 auth-vid 1
+aaa port-access mac-based 4/15 logoff-period 862400
+aaa port-access mac-based 4/15 quiet-period 30
+aaa port-access mac-based 4/15 auth-vid 1
+aaa port-access mac-based 4/16 logoff-period 862400
+aaa port-access mac-based 4/16 quiet-period 30
+aaa port-access mac-based 4/16 auth-vid 1
+aaa port-access mac-based 4/17 logoff-period 862400
+aaa port-access mac-based 4/17 quiet-period 30
+aaa port-access mac-based 4/17 auth-vid 1
+aaa port-access mac-based 4/18 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/18 quiet-period 30
+aaa port-access mac-based 4/18 auth-vid 1
+aaa port-access mac-based 4/19 logoff-period 862400
+aaa port-access mac-based 4/19 quiet-period 30
+aaa port-access mac-based 4/19 auth-vid 1
+aaa port-access mac-based 4/20 logoff-period 862400
+aaa port-access mac-based 4/20 quiet-period 30
+aaa port-access mac-based 4/20 auth-vid 1
+aaa port-access mac-based 4/21 logoff-period 862400
+aaa port-access mac-based 4/21 quiet-period 30
+aaa port-access mac-based 4/21 auth-vid 1
+aaa port-access mac-based 4/22 logoff-period 862400
+aaa port-access mac-based 4/22 quiet-period 30
+aaa port-access mac-based 4/22 auth-vid 1
+aaa port-access mac-based 4/23 logoff-period 862400
+aaa port-access mac-based 4/23 quiet-period 30
+aaa port-access mac-based 4/23 auth-vid 1
+aaa port-access mac-based 4/24 logoff-period 862400
+aaa port-access mac-based 4/24 quiet-period 30
+aaa port-access mac-based 4/24 auth-vid 1
+aaa port-access mac-based 4/25 logoff-period 862400
+aaa port-access mac-based 4/25 quiet-period 30
+aaa port-access mac-based 4/25 auth-vid 1
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/26 logoff-period 862400
+aaa port-access mac-based 4/26 quiet-period 30
+aaa port-access mac-based 4/26 auth-vid 1
+aaa port-access mac-based 4/30 logoff-period 862400
+aaa port-access mac-based 4/30 quiet-period 30
+aaa port-access mac-based 4/30 auth-vid 1
+aaa port-access mac-based 4/31 logoff-period 862400
+aaa port-access mac-based 4/31 quiet-period 30
+aaa port-access mac-based 4/31 auth-vid 1
+aaa port-access mac-based 4/32 logoff-period 862400
+aaa port-access mac-based 4/32 quiet-period 30
+aaa port-access mac-based 4/32 auth-vid 1
+aaa port-access mac-based 4/33 logoff-period 862400
+aaa port-access mac-based 4/33 quiet-period 30
+aaa port-access mac-based 4/33 auth-vid 1
+aaa port-access mac-based 4/34 logoff-period 862400
+aaa port-access mac-based 4/34 quiet-period 30
+aaa port-access mac-based 4/34 auth-vid 1
+aaa port-access mac-based 4/35 logoff-period 862400
+aaa port-access mac-based 4/35 quiet-period 30
+aaa port-access mac-based 4/35 auth-vid 1
+aaa port-access mac-based 4/36 logoff-period 862400
+aaa port-access mac-based 4/36 quiet-period 30
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/36 auth-vid 1
+aaa port-access mac-based 4/37 logoff-period 862400
+aaa port-access mac-based 4/37 quiet-period 30
+aaa port-access mac-based 4/37 auth-vid 1
+aaa port-access mac-based 4/38 logoff-period 862400
+aaa port-access mac-based 4/38 quiet-period 30
+aaa port-access mac-based 4/38 auth-vid 1
+aaa port-access mac-based 4/39 logoff-period 862400
+aaa port-access mac-based 4/39 quiet-period 30
+aaa port-access mac-based 4/39 auth-vid 1
+aaa port-access mac-based 4/40 logoff-period 862400
+aaa port-access mac-based 4/40 quiet-period 30
+aaa port-access mac-based 4/40 auth-vid 1
+aaa port-access mac-based 4/41 logoff-period 862400
+aaa port-access mac-based 4/41 quiet-period 30
+aaa port-access mac-based 4/41 auth-vid 1
+aaa port-access mac-based 4/42 logoff-period 862400
+aaa port-access mac-based 4/42 quiet-period 30
+aaa port-access mac-based 4/42 auth-vid 1
+aaa port-access mac-based 4/43 logoff-period 862400
+aaa port-access mac-based 4/43 quiet-period 30
+aaa port-access mac-based 4/43 auth-vid 1
+aaa port-access mac-based 4/44 logoff-period 862400
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access mac-based 4/44 quiet-period 30
+aaa port-access mac-based 4/44 auth-vid 1
+aaa port-access mac-based 4/46 logoff-period 862400
+aaa port-access mac-based 4/46 quiet-period 30
+aaa port-access mac-based 4/46 auth-vid 1
+aaa port-access mac-based 4/47 logoff-period 862400
+aaa port-access mac-based 4/47 quiet-period 30
+aaa port-access mac-based 4/47 auth-vid 1
+aaa port-access 1/1 controlled-direction in
+aaa port-access 1/2 controlled-direction in
+aaa port-access 1/3 controlled-direction in
+aaa port-access 1/4 controlled-direction in
+aaa port-access 1/5 controlled-direction in
+aaa port-access 1/6 controlled-direction in
+aaa port-access 1/7 controlled-direction in
+aaa port-access 1/8 controlled-direction in
+aaa port-access 1/9 controlled-direction in
+aaa port-access 1/10 controlled-direction in
+aaa port-access 1/11 controlled-direction in
+aaa port-access 1/12 controlled-direction in
+aaa port-access 1/13 controlled-direction in
+aaa port-access 1/14 controlled-direction in
+aaa port-access 1/15 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 1/16 controlled-direction in
+aaa port-access 1/17 controlled-direction in
+aaa port-access 1/18 controlled-direction in
+aaa port-access 1/19 controlled-direction in
+aaa port-access 1/20 controlled-direction in
+aaa port-access 1/21 controlled-direction in
+aaa port-access 1/22 controlled-direction in
+aaa port-access 1/23 controlled-direction in
+aaa port-access 1/24 controlled-direction in
+aaa port-access 1/25 controlled-direction in
+aaa port-access 1/26 controlled-direction in
+aaa port-access 1/27 controlled-direction in
+aaa port-access 1/28 controlled-direction in
+aaa port-access 1/29 controlled-direction in
+aaa port-access 1/30 controlled-direction in
+aaa port-access 1/31 controlled-direction in
+aaa port-access 1/32 controlled-direction in
+aaa port-access 1/33 controlled-direction in
+aaa port-access 1/34 controlled-direction in
+aaa port-access 1/35 controlled-direction in
+aaa port-access 1/36 controlled-direction in
+aaa port-access 1/37 controlled-direction in
+aaa port-access 1/38 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 1/39 controlled-direction in
+aaa port-access 1/40 controlled-direction in
+aaa port-access 1/41 controlled-direction in
+aaa port-access 1/42 controlled-direction in
+aaa port-access 1/43 controlled-direction in
+aaa port-access 1/44 controlled-direction in
+aaa port-access 1/46 controlled-direction in
+aaa port-access 1/47 controlled-direction in
+aaa port-access 1/48 controlled-direction in
+aaa port-access 2/1 controlled-direction in
+aaa port-access 2/2 controlled-direction in
+aaa port-access 2/3 controlled-direction in
+aaa port-access 2/4 controlled-direction in
+aaa port-access 2/5 controlled-direction in
+aaa port-access 2/6 controlled-direction in
+aaa port-access 2/7 controlled-direction in
+aaa port-access 2/8 controlled-direction in
+aaa port-access 2/9 controlled-direction in
+aaa port-access 2/10 controlled-direction in
+aaa port-access 2/11 controlled-direction in
+aaa port-access 2/12 controlled-direction in
+aaa port-access 2/13 controlled-direction in
+aaa port-access 2/14 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 2/15 controlled-direction in
+aaa port-access 2/16 controlled-direction in
+aaa port-access 2/17 controlled-direction in
+aaa port-access 2/18 controlled-direction in
+aaa port-access 2/19 controlled-direction in
+aaa port-access 2/20 controlled-direction in
+aaa port-access 2/21 controlled-direction in
+aaa port-access 2/22 controlled-direction in
+aaa port-access 2/23 controlled-direction in
+aaa port-access 2/24 controlled-direction in
+aaa port-access 2/25 controlled-direction in
+aaa port-access 2/26 controlled-direction in
+aaa port-access 2/27 controlled-direction in
+aaa port-access 2/28 controlled-direction in
+aaa port-access 2/29 controlled-direction in
+aaa port-access 2/30 controlled-direction in
+aaa port-access 2/31 controlled-direction in
+aaa port-access 2/32 controlled-direction in
+aaa port-access 2/33 controlled-direction in
+aaa port-access 2/34 controlled-direction in
+aaa port-access 2/35 controlled-direction in
+aaa port-access 2/36 controlled-direction in
+aaa port-access 2/37 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 2/38 controlled-direction in
+aaa port-access 2/39 controlled-direction in
+aaa port-access 2/40 controlled-direction in
+aaa port-access 2/41 controlled-direction in
+aaa port-access 2/42 controlled-direction in
+aaa port-access 2/43 controlled-direction in
+aaa port-access 2/44 controlled-direction in
+aaa port-access 2/46 controlled-direction in
+aaa port-access 2/47 controlled-direction in
+aaa port-access 2/48 controlled-direction in
+aaa port-access 3/1 controlled-direction in
+aaa port-access 3/2 controlled-direction in
+aaa port-access 3/3 controlled-direction in
+aaa port-access 3/4 controlled-direction in
+aaa port-access 3/5 controlled-direction in
+aaa port-access 3/6 controlled-direction in
+aaa port-access 3/7 controlled-direction in
+aaa port-access 3/8 controlled-direction in
+aaa port-access 3/9 controlled-direction in
+aaa port-access 3/10 controlled-direction in
+aaa port-access 3/11 controlled-direction in
+aaa port-access 3/12 controlled-direction in
+aaa port-access 3/13 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 3/14 controlled-direction in
+aaa port-access 3/15 controlled-direction in
+aaa port-access 3/16 controlled-direction in
+aaa port-access 3/17 controlled-direction in
+aaa port-access 3/18 controlled-direction in
+aaa port-access 3/19 controlled-direction in
+aaa port-access 3/20 controlled-direction in
+aaa port-access 3/21 controlled-direction in
+aaa port-access 3/22 controlled-direction in
+aaa port-access 3/23 controlled-direction in
+aaa port-access 3/24 controlled-direction in
+aaa port-access 3/25 controlled-direction in
+aaa port-access 3/26 controlled-direction in
+aaa port-access 3/27 controlled-direction in
+aaa port-access 3/28 controlled-direction in
+aaa port-access 3/29 controlled-direction in
+aaa port-access 3/30 controlled-direction in
+aaa port-access 3/31 controlled-direction in
+aaa port-access 3/32 controlled-direction in
+aaa port-access 3/33 controlled-direction in
+aaa port-access 3/34 controlled-direction in
+aaa port-access 3/35 controlled-direction in
+aaa port-access 3/36 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 3/37 controlled-direction in
+aaa port-access 3/38 controlled-direction in
+aaa port-access 3/39 controlled-direction in
+aaa port-access 3/40 controlled-direction in
+aaa port-access 3/41 controlled-direction in
+aaa port-access 3/42 controlled-direction in
+aaa port-access 3/43 controlled-direction in
+aaa port-access 3/44 controlled-direction in
+aaa port-access 3/45 controlled-direction in
+aaa port-access 3/46 controlled-direction in
+aaa port-access 3/47 controlled-direction in
+aaa port-access 3/48 controlled-direction in
+aaa port-access 4/1 controlled-direction in
+aaa port-access 4/2 controlled-direction in
+aaa port-access 4/3 controlled-direction in
+aaa port-access 4/4 controlled-direction in
+aaa port-access 4/5 controlled-direction in
+aaa port-access 4/6 controlled-direction in
+aaa port-access 4/7 controlled-direction in
+aaa port-access 4/8 controlled-direction in
+aaa port-access 4/9 controlled-direction in
+aaa port-access 4/10 controlled-direction in
+aaa port-access 4/11 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 4/12 controlled-direction in
+aaa port-access 4/13 controlled-direction in
+aaa port-access 4/14 controlled-direction in
+aaa port-access 4/15 controlled-direction in
+aaa port-access 4/16 controlled-direction in
+aaa port-access 4/17 controlled-direction in
+aaa port-access 4/18 controlled-direction in
+aaa port-access 4/19 controlled-direction in
+aaa port-access 4/20 controlled-direction in
+aaa port-access 4/21 controlled-direction in
+aaa port-access 4/22 controlled-direction in
+aaa port-access 4/23 controlled-direction in
+aaa port-access 4/24 controlled-direction in
+aaa port-access 4/25 controlled-direction in
+aaa port-access 4/26 controlled-direction in
+aaa port-access 4/30 controlled-direction in
+aaa port-access 4/31 controlled-direction in
+aaa port-access 4/32 controlled-direction in
+aaa port-access 4/33 controlled-direction in
+aaa port-access 4/34 controlled-direction in
+aaa port-access 4/35 controlled-direction in
+aaa port-access 4/36 controlled-direction in
+aaa port-access 4/37 controlled-direction in
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1Haaa port-access 4/38 controlled-direction in
+aaa port-access 4/39 controlled-direction in
+aaa port-access 4/40 controlled-direction in
+aaa port-access 4/41 controlled-direction in
+aaa port-access 4/42 controlled-direction in
+aaa port-access 4/43 controlled-direction in
+aaa port-access 4/44 controlled-direction in
+aaa port-access 4/46 controlled-direction in
+aaa port-access 4/47 controlled-direction in
+oobm
+   ip address dhcp-bootp
+   member 1
+      ip address dhcp-bootp
+      exit
+   member 2
+      ip address dhcp-bootp
+      exit
+   member 3
+      ip address dhcp-bootp
+      exit
+   member 4
+      ip address dhcp-bootp
+      exit
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+vlan 1
+   name "DEFAULT_VLAN"
+   no untagged
+ 1/1-1/44,1/46-1/48,2/1-2/44,2/46-2/48,3/1-3/48,4/1-4/44,4/46-4/48,Trk1
+   no ip address
+   exit
+vlan 100
+   name "VLAN100"
+   untagged
+ 1/1-1/44,1/46-1/48,2/1-2/44,2/46-2/48,3/1-3/48,4/1-4/26,4/30-4/44,4/46-4/47
+   tagged 4/48,Trk1
+   ip address 172.18.4.6 255.255.252.0
+   exit
+vlan 200
+   name "VLAN200"
+   tagged 4/27-4/29,4/48,Trk1
+   no ip address
+   exit
+vlan 201
+   name "VLAN201"
+   tagged 4/28,4/48,Trk1
+   no ip address
+[24;1H[2K-- MORE --, next page: Space, next line: Enter, quit: Control-C[24;1H[24;1H[2K[24;1H[1;24r[24;1H   exit
+vlan 202
+   name "VLAN202"
+   untagged 4/27-4/29
+   tagged 4/48,Trk1
+   no ip address
+   exit
+vlan 298
+   name "VLAN298"
+   tagged 4/27-4/29,4/48,Trk1
+   no ip address
+   exit
+spanning-tree Trk1 priority 4
+no tftp server
+no autorun
+no dhcp config-file-update
+no dhcp image-file-update
+no dhcp tr69-acs-url
+password manager

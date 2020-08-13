@@ -1,0 +1,620 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.10.21 16:47:21 =~=~=~=~=~=~=~=~=~=~=~=
+show con
+                                          ^
+'con' is ambiguous.
+Possible completions:
+  configuration        Show current configuration
+  connections          Show circuit cross-connect connections
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> show con       figuration 
+## Last commit: 2019-08-20 16:08:34 IST by amolp1.tcs
+version 15.1X53-D58.3;
+system {
+    host-name PNE_E16-17_FF_Col_15;
+    auto-snapshot;
+    domain-name pune.telco.co.in;
+    time-zone Asia/Kolkata;
+    authentication-order [ tacplus password ];
+    root-authentication {
+        encrypted-password "$5$irq7OlDW$3LQYir5OUIiPnZI6/J3BnopnAYFFRpmNM4yoHzeTd./"; ## SECRET-DATA
+    }
+    tacplus-server {
+        172.22.66.101 secret "$9$NP-YoJZj.fz7-Gi.56/KM87VY4aUH.5"; ## SECRET-DATA
+        172.22.66.102;
+    }
+    login {
+---(more)---                                                message "WARNING\n The equipment now being accessed and information available through this equipment is confidential and proprietary of Tata Motors Ltd. It may be accessed or used only as specifically authorized. All other access or use is prohibited and is subject to legal action!This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel. In the course of monitoring individuals improperly using this system, or in the course of system maintenance, the activities of authorized users may also be monitored. Anyone using this system expressly consents to such monitoring and is advised that if such monitoring reveals possible evidence of criminal activity, system personnel may provide the evidence of such monitoring to law enforcement officials";
+        user remote {
+            full-name "All remote users";
+            uid 2000;
+            class super-user;
+        }
+    }
+    services {
+        ssh {
+            authentication-order [ tacplus password ];
+            root-login deny;
+            protocol-version v2;
+---(more 4%)---                                                    fingerprint-hash sha2-256;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    archival {
+        configuration {
+            transfer-on-commit;
+            archive-sites {
+                "ftp://netadmin.tcs:ServicEACNwS$8021@128.9.51.55/Pune/juniper/172.22.144.20";
+            }
+        }
+---(more 8%)---                                            }
+    processes {
+        dhcp-service {
+            traceoptions {
+                file dhcp_logfile size 10m;
+                level all;
+                flag all;
+            }
+        }
+    }
+    ntp {
+        server 172.31.9.241 prefer;
+        server 172.24.47.207;
+        source-address 172.22.144.20;
+    }
+}
+chassis {
+    redundancy {
+        graceful-switchover;
+    }
+}
+interfaces {
+    ge-0/0/0 {
+---(more 12%)---                                                unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/1 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/2 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+---(more 17%)---                                                            members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+---(more 21%)---                                                    }
+        }
+    }
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+---(more 25%)---                                            ge-0/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/9 {
+        unit 0 {
+            family ethernet-switching {
+---(more 29%)---                                                        vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/10 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/11 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan11;
+                }
+---(more 33%)---                                                        storm-control default;
+            }
+        }
+    }
+    ge-0/0/12 {
+        description 172.22.146.54;
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/13 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+---(more 37%)---                                                }
+    }
+    ge-0/0/14 {
+        description 172.22.146.38;
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/15 {
+        description 172.22.146.14;
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+---(more 41%)---                                            }
+    ge-0/0/16 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/17 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/18 {
+        unit 0 {
+---(more 45%)---                                                    family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/19 {
+        unit 0 {
+            family ethernet-switching {
+                vlan {
+                    members vlan12;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/20 {
+        description 172.22.144.34;
+        unit 0 {
+            family ethernet-switching {
+                interface-mode trunk;
+---(more 49%)---                                                        vlan {
+                    members all;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/21 {
+        description 172.22.144.18;
+        unit 0 {
+            family ethernet-switching {
+                interface-mode trunk;
+                vlan {
+                    members all;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/22 {
+        description 172.22.144.11;
+        unit 0 {
+            family ethernet-switching {
+---(more 53%)---                                                        interface-mode trunk;
+                vlan {
+                    members all;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/0/23 {
+        description 172.22.144.19;
+        unit 0 {
+            family ethernet-switching {
+                interface-mode trunk;
+                vlan {
+                    members all;
+                }
+                storm-control default;
+            }
+        }
+    }
+    ge-0/1/0 {
+        unit 0 {
+            family ethernet-switching {
+---(more 57%)---                                                        storm-control default;
+            }
+        }
+    }
+    xe-0/1/0 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/1/1 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/1/1 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+---(more 61%)---                                                }
+    }
+    ge-0/1/2 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    xe-0/1/2 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    ge-0/1/3 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+---(more 66%)---                                            xe-0/1/3 {
+        unit 0 {
+            family ethernet-switching {
+                storm-control default;
+            }
+        }
+    }
+    irb {
+        unit 0 {
+            family inet {
+                dhcp {
+                    vendor-id Juniper-ex2300-24t;
+                }
+            }
+        }
+        unit 11 {
+            family inet {
+                address 172.22.144.20/23;
+            }
+        }
+    }
+    vme {
+        unit 0 {
+---(more 70%)---                                                    family inet {
+                dhcp {
+                    vendor-id Juniper-ex2300-24t;
+                }
+            }
+        }
+    }
+}
+snmp {
+    v3 {
+        usm {
+            local-engine {
+                user NWS {
+                    authentication-sha {
+                        authentication-key "$9$ldWMxNdb2ZDkeKZjiHPftuORylbwgZDk"; ## SECRET-DATA
+                    }
+                    privacy-aes128 {
+                        privacy-key "$9$.5369A0ESemPEyrlW824aUk.AtOESe"; ## SECRET-DATA
+                    }
+                }
+                user NWS_RW {
+---(more 73%)---                                                            authentication-sha {
+                        authentication-key "$9$Y/2JGQz6uORUD6AtpB1-VwgZUF39uBE"; ## SECRET-DATA
+                    }
+                    privacy-aes128 {
+                        privacy-key "$9$/9OK9uOvMXbs4B1X-dVY2QFnC0BW87bYo"; ## SECRET-DATA
+                    }
+                }
+            }
+        }
+        vacm {
+            security-to-group {
+                security-model usm {
+                    security-name NWS {
+                        group GROUP2;
+                    }
+                    security-name NWS_RW {
+                        group GROUP2;
+                    }
+                }
+            }
+            access {
+---(more 77%)---                                                        group GROUP1 {
+                    default-context-prefix {
+                        security-model usm {
+                            security-level privacy {
+                                read-view RO_ACCESS;
+                            }
+                        }
+                    }
+                }
+                group GROUP2 {
+                    default-context-prefix {
+                        security-model usm {
+                            security-level privacy {
+                                read-view RW_ACCESS;
+                                write-view RW_ACCESS;
+                                notify-view RW_ACCESS;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        target-address TARGET {
+---(more 81%)---                                                    address 128.9.52.48;
+            port 162;
+            target-parameters target2;
+        }
+        target-parameters target1 {
+            parameters {
+                message-processing-model v3;
+                security-model usm;
+                security-level privacy;
+                security-name NWS;
+            }
+        }
+        target-parameters target2 {
+            parameters {
+                message-processing-model v3;
+                security-model usm;
+                security-level privacy;
+                security-name NWS_RW;
+            }
+        }
+    }
+    view RO_ACCESS {
+        oid .1 include;
+---(more 85%)---                                            }
+    view RW_ACCESS {
+        oid .1 include;
+        oid system include;
+    }
+    traceoptions {
+        file SNMP-LOGS size 5m files 3 world-readable;
+        flag all;
+    }
+}
+forwarding-options {
+    storm-control-profiles default {
+        all;
+    }
+}
+routing-options {
+    static {
+        route 0.0.0.0/0 next-hop 172.22.144.1;
+    }
+}
+protocols {
+    lldp {
+        management-address 172.22.144.20;
+---(more 89%)---                                                neighbour-port-info-display port-id;
+        interface all;
+    }
+    lldp-med {
+        interface all;
+    }
+    igmp-snooping {
+        vlan default;
+    }
+    rstp {
+        interface ge-0/0/0;
+        interface ge-0/0/1;
+        interface ge-0/0/2;
+        interface ge-0/0/3;
+        interface ge-0/0/4;
+        interface ge-0/0/5;
+        interface ge-0/0/6;
+        interface ge-0/0/7;
+        interface ge-0/0/8;
+        interface ge-0/0/9;
+        interface ge-0/0/10;
+        interface ge-0/0/11;
+        interface ge-0/0/12;
+---(more 93%)---                                                interface ge-0/0/13;
+        interface ge-0/0/14;
+        interface ge-0/0/15;
+        interface ge-0/0/16;
+        interface ge-0/0/17;
+        interface ge-0/0/18;
+        interface ge-0/0/19;
+        interface ge-0/0/20;
+        interface ge-0/0/21;
+        interface ge-0/0/22;
+        interface ge-0/0/23;
+        interface ge-0/1/0;
+        interface xe-0/1/0;
+        interface ge-0/1/1;
+        interface xe-0/1/1;
+        interface ge-0/1/2;
+        interface xe-0/1/2;
+        interface ge-0/1/3;
+        interface xe-0/1/3;
+    }
+}
+vlans {
+    default {
+---(more 98%)---                                                vlan-id 1;
+        l3-interface irb.0;
+    }
+    vlan11 {
+        vlan-id 11;
+        l3-interface irb.11;
+    }
+    vlan12 {
+        vlan-id 12;
+    }
+}
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> 
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> 
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> show version 
+fpc0:
+--------------------------------------------------------------------------
+Hostname: PNE_E16-17_FF_Col_15
+Model: ex2300-24t
+Junos: 15.1X53-D58.3
+Pending: 18.3R2.7 
+JUNOS OS Kernel 32-bit  [20180119.e26d166_builder_master]
+JUNOS OS libs [20180119.e26d166_builder_master]
+JUNOS OS runtime [20180119.e26d166_builder_master]
+JUNOS OS time zone information [20180119.e26d166_builder_master]
+JUNOS py extensions [20180204.044726_builder_junos_151_x53_d58]
+JUNOS py base [20180204.044726_builder_junos_151_x53_d58]
+JUNOS OS crypto [20180119.e26d166_builder_master]
+JUNOS network stack and utilities [20180204.044726_builder_junos_151_x53_d58]
+JUNOS libs [20180204.044726_builder_junos_151_x53_d58]
+JUNOS runtime [20180204.044726_builder_junos_151_x53_d58]
+JUNOS Web Management Platform Package [20180204.044726_builder_junos_151_x53_d58]
+JUNOS ex libs [20180204.044726_builder_junos_151_x53_d58]
+JUNOS ex runtime [20180204.044726_builder_junos_151_x53_d58]
+JUNOS ex platform support [20180204.044726_builder_junos_151_x53_d58]
+JUNOS modules [20180204.044726_builder_junos_151_x53_d58]
+JUNOS ex modules [20180204.044726_builder_junos_151_x53_d58]
+---(more)---                                        JUNOS Data Plane Crypto Support [20180204.044726_builder_junos_151_x53_d58]
+JUNOS mtx Data Plane Crypto Support [20180204.044726_builder_junos_151_x53_d58]
+JUNOS daemons [20180204.044726_builder_junos_151_x53_d58]
+JUNOS Packet Forwarding Engine Support (EX34XX) [20180204.044726_builder_junos_151_x53_d58]
+JUNOS jdocs ex [20180204.044726_builder_junos_151_x53_d58]
+JUNOS jail runtime [20180119.e26d166_builder_master]
+JUNOS FIPS mode utilities [20180204.044726_builder_junos_151_x53_d58]
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> 
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> 
+
+{master:0}
+vishalk.tcs@PNE_E16-17_FF_Col_15> quit 
+

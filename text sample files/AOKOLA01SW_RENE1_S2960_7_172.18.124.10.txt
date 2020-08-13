@@ -1,0 +1,725 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2019.10.21 16:33:08 =~=~=~=~=~=~=~=~=~=~=~=
+sh ry un
+Building configuration...
+
+Current configuration : 19020 bytes
+!
+! Last configuration change at 00:59:26 ist Sat May 18 2019 by minaln
+!
+version 15.0
+service nagle
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+service pt-vty-logging
+no service dhcp
+!
+hostname AOKOLA01SW_RENE1_S2960_7
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 64000
+logging console critical
+ --More--         enable secret 5 $1$1FH5$L.Dkt5hARo0FN73dZp11u/
+!
+username localodc privilege 15 secret 5 $1$n87E$TIgeTYax6NLBKZMYqTCqT/
+username nocuser privilege 4 secret 5 $1$MaqW$P98Nq.uTFaZzNub/Og8t71
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ local
+aaa authentication login CONSOLE local
+aaa authentication enable default group tacacs+ enable
+aaa authentication dot1x default group radius local
+aaa authorization exec default group tacacs+ local 
+aaa authorization commands 15 default group tacacs+ local 
+aaa authorization network default local group radius 
+aaa authorization auth-proxy default group radius 
+aaa accounting dot1x default start-stop group radius
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+aaa accounting connection default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+ --More--         !
+!
+!
+aaa server radius dynamic-author
+ client 172.31.16.5 server-key 7 022A54585B0B5F350D582C395747435C
+ port 3799
+ auth-type all
+!
+aaa session-id common
+clock timezone ist 5 30
+system mtu routing 1500
+vtp domain TML
+vtp mode transparent
+no ip source-route
+!
+!
+no ip domain-lookup
+ip domain-name tmindia.tatamotors.com
+ip device tracking
+!
+!
+crypto pki trustpoint TP-self-signed-116175872
+ enrollment selfsigned
+ --More--          subject-name cn=IOS-Self-Signed-Certificate-116175872
+ revocation-check none
+ rsakeypair TP-self-signed-116175872
+!
+!
+crypto pki certificate chain TP-self-signed-116175872
+ certificate self-signed 01
+  3082023D 308201A6 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31313631 37353837 32301E17 0D393330 33303130 30303132 
+  345A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3131 36313735 
+  38373230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  BC3A4702 0984558D FAEABEC6 F526EB24 DF260ADD 52E0836C 137820ED FC057BDF 
+  20CC01BE 75F3FC46 182B452A A230E5AC C81BA521 7AF7CC00 AFE4C2BE 92656461 
+  0F05BC2D 6BE70909 0E246071 23B60966 5F12B5D8 B0127814 C0E3C8A1 101A550F 
+  A3D4742C DA9D6D93 77BFE15C 82F58A2B 8218E5B7 52049EE1 2176BA5D 7A6F9BBB 
+  02030100 01A36730 65300F06 03551D13 0101FF04 05300301 01FF3012 0603551D 
+  11040B30 09820753 77697463 682E301F 0603551D 23041830 16801466 85FB3C57 
+  126CB64A A3D191DD AE54DF54 AD41A630 1D060355 1D0E0416 04146685 FB3C5712 
+  6CB64AA3 D191DDAE 54DF54AD 41A6300D 06092A86 4886F70D 01010405 00038181 
+  00A4B646 3A9104A0 157B3F59 DCF34C85 701E12B4 3B62BD2A 4D27B6FC 45AA9675 
+  3D307D1C 8EA7AC6F D3B83102 29F97A58 95ACFB65 D45CFB02 1C9D475E 638B2C78 
+ --More--           A1B83BE2 CC474026 55B6008D 5806A08B 172B7613 47EFE259 C1501392 F9A75EBD 
+  7BCC4696 B5E3FF09 BF55D314 DC0DFE64 6D5BECA2 3B62B959 B85AA408 D77330C2 D2
+  	quit
+dot1x system-auth-control
+!
+!
+!
+!
+!
+errdisable recovery cause udld
+errdisable recovery cause bpduguard
+errdisable recovery cause security-violation
+errdisable recovery cause channel-misconfig (STP)
+errdisable recovery cause pagp-flap
+errdisable recovery cause dtp-flap
+errdisable recovery cause link-flap
+errdisable recovery cause sfp-config-mismatch
+errdisable recovery cause gbic-invalid
+errdisable recovery cause psecure-violation
+errdisable recovery cause port-mode-failure
+errdisable recovery cause dhcp-rate-limit
+errdisable recovery cause pppoe-ia-rate-limit
+errdisable recovery cause mac-limit
+ --More--         errdisable recovery cause vmps
+errdisable recovery cause storm-control
+errdisable recovery cause inline-power
+errdisable recovery cause arp-inspection
+errdisable recovery cause loopback
+errdisable recovery cause small-frame
+errdisable recovery cause psp
+errdisable recovery interval 120
+archive
+ path ftp://128.9.51.55/EAST_Region\Kolkata_RENE_Towers_RAO_A01\172.18.124.10\
+ write-memory
+ time-period 43200
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 100 
+!
+vlan 111
+ name VC_VLAN
+!
+vlan 200-201 
+ --More--         !
+vlan 298
+ name UXNext
+!
+vlan 300
+ name wireless
+!
+ip tcp selective-ack
+ip tcp path-mtu-discovery age-timer 10
+ip ftp username netadmin.tcs
+ip ftp password 7 073C245E58001A203631251B376E73747A62
+ip ssh time-out 60
+ip ssh version 2
+!
+!
+!
+!
+!
+interface GigabitEthernet0/1
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ --More--          authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/2
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ --More--          dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/3
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/4
+ switchport access vlan 100
+ switchport mode access
+ --More--          switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/5
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ --More--          dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/6
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/7
+ --More--          switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/8
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ --More--          authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/9
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+ --More--         !
+ --More--         interface GigabitEthernet0/10
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/11
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ --More--          authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/12
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ --More--          spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/13
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/14
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ --More--          authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/15
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ --More--          dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/16
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/17
+ switchport access vlan 100
+ switchport mode access
+ --More--          switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/18
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ --More--          dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/19
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/20
+ --More--          switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/21
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ --More--          authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+!
+interface GigabitEthernet0/22
+ switchport access vlan 100
+ switchport mode access
+ switchport nonegotiate
+ authentication order dot1x mab
+ authentication priority dot1x mab
+ authentication port-control auto
+ authentication periodic
+ authentication timer reauthenticate server
+ mab
+ dot1x pae authenticator
+ dot1x timeout tx-period 20
+ dot1x timeout supp-timeout 20
+ spanning-tree portfast
+ spanning-tree bpdufilter enable
+ --More--         !
+interface GigabitEthernet0/23
+ description 172.18.124.11
+ switchport trunk native vlan 300
+ switchport mode trunk
+!
+interface GigabitEthernet0/24
+ description 172.18.124.9
+ switchport trunk native vlan 300
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan100
+ ip address 172.18.124.10 255.255.254.0
+ no ip redirects
+ no ip unreachables
+ no ip route-cache
+!
+ip default-gateway 172.18.124.8
+no ip http server
+ --More--         no ip http secure-server
+!
+ip access-list extended CPG
+ deny   tcp any host 172.31.16.5
+ permit tcp any any
+logging trap errors
+logging source-interface Vlan100
+logging host 172.31.16.181
+access-list 50 permit 172.31.16.167
+access-list 50 permit 172.31.16.166
+access-list 50 permit 172.31.16.165
+access-list 50 permit 172.31.16.159
+access-list 50 permit 172.27.128.96
+access-list 50 permit 172.31.17.205
+access-list 50 permit 128.9.52.48
+access-list 50 permit 128.9.31.101
+access-list 50 remark --> Read Only-SNMP Management NNM
+access-list 50 remark --> Read Only-SNMP Management
+access-list 51 permit 172.31.16.176
+access-list 51 remark --> Read Write-SNMP Management NA
+access-list 51 permit 172.31.16.159
+access-list 51 permit 128.9.52.50
+access-list 51 remark --> Read Write-SNMP Management
+ --More--         access-list 81 permit 172.31.9.241
+access-list 81 permit 172.24.47.207
+access-list 81 remark --> NTP Mode 6 Vulnarablity Removal ACL
+snmp-server group GROUP1 v3 priv read RO_ACCESS access 50
+snmp-server group GROUP2 v3 priv write RW_ACCESS access 51
+snmp-server view RO_ACCESS iso included
+snmp-server view RW_ACCESS iso included
+snmp-server location Kolkata RENE Towers: Regional / Area Office (A01)
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps transceiver all
+snmp-server enable traps call-home message-send-fail server-fail
+snmp-server enable traps tty
+snmp-server enable traps cluster
+snmp-server enable traps entity
+snmp-server enable traps cpu threshold
+snmp-server enable traps vtp
+snmp-server enable traps vlancreate
+snmp-server enable traps vlandelete
+snmp-server enable traps flash insertion removal
+snmp-server enable traps port-security
+snmp-server enable traps auth-framework sec-violation
+snmp-server enable traps dot1x auth-fail-vlan guest-vlan no-auth-fail-vlan no-guest-vlan
+ --More--         snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps power-ethernet police
+snmp-server enable traps fru-ctrl
+snmp-server enable traps config-copy
+snmp-server enable traps config
+snmp-server enable traps config-ctid
+snmp-server enable traps energywise
+snmp-server enable traps vstack
+snmp-server enable traps bridge newroot topologychange
+snmp-server enable traps stpx inconsistency root-inconsistency loop-inconsistency
+snmp-server enable traps syslog
+snmp-server enable traps mac-notification change move threshold
+snmp-server enable traps vlan-membership
+snmp-server enable traps errdisable
+snmp-server host 128.9.52.48 version 3 priv NWS 
+snmp-server host 172.27.128.96 version 3 priv NWS 
+snmp-server host 172.31.16.159 version 3 priv NWS 
+snmp-server host 172.31.16.165 version 3 priv NWS 
+snmp-server host 172.31.16.166 version 3 priv NWS 
+snmp-server host 172.31.16.167 version 3 priv NWS 
+snmp-server host 128.9.52.50 version 3 priv NWS_RW 
+snmp-server host 172.31.16.159 version 3 priv NWS_RW 
+ --More--         snmp-server host 172.31.16.176 version 3 priv NWS_RW 
+snmp-server manager
+tacacs-server timeout 10
+tacacs-server directed-request
+tacacs-server key 7 001012120556041200335F
+tacacs server tml-ise-pri
+ address ipv4 172.22.66.101
+ key 7 0212054F0A0B0035435C1A
+tacacs server tml-ise-sec
+ address ipv4 172.22.66.102
+ key 7 111D1811161F04180B3838
+radius-server host 172.31.16.5 auth-port 1812 acct-port 1813 key 7 022A54585B0B5F350D582C395747435C
+radius-server host 172.31.16.5 key 7 0028430554565B124E37696E5B495440
+radius-server host 172.22.88.13 key 7 04775B055F2C1C5A480F2037405B5D53
+radius-server retry method reorder
+radius-server timeout 15
+radius-server deadtime 15
+radius-server vsa send authentication
+!
+!
+!
+vstack
+ --More--         banner motd ^C#################################################################################################
+                                         **WARNING**
+The equipment now being accessed and information available through this equipment is confidential
+and proprietary of Tata Motors Ltd. It may be accessed or used only as specifically authorized.
+All other access or use is prohibited and is subject to legal action!
+#################################################################################################^C
+!
+line con 0
+ password 7 143442051F54262E7569
+line vty 0 4
+ session-timeout 10 
+ transport input ssh
+line vty 5 15
+ session-timeout 10 
+ transport input ssh
+!
+ntp authenticate
+ntp access-group peer 81
+ntp server 172.24.26.72
+ --More--         ntp server 172.24.47.207
+ntp server 172.31.32.212 prefer
+ntp server 172.31.9.241 prefer
+end
+
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#sh ver
+Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2017 by Cisco Systems, Inc.
+Compiled Sat 19-Aug-17 09:34 by prod_rel_team
+
+ROM: Bootstrap program is C2960 boot loader
+BOOTLDR: C2960 Boot Loader (C2960-HBOOT-M) Version 12.2(44)SE5, RELEASE SOFTWARE (fc1)
+
+AOKOLA01SW_RENE1_S2960_7 uptime is 33 weeks, 3 days, 6 hours, 16 minutes
+System returned to ROM by power-on
+System restarted at 10:15:45 ist Fri Mar 1 2019
+System image file is "flash:c2960-lanbasek9-mz.150-2.SE11.bin"
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+ --More--         to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco WS-C2960G-24TC-L (PowerPC405) processor (revision J0) with 65536K bytes of memory.
+Processor board ID FOC1523W2H1
+Last reset from power-on
+2 Virtual Ethernet interfaces
+24 Gigabit Ethernet interfaces
+The password-recovery mechanism is enabled.
+
+64K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address       : 20:37:06:EC:B4:00
+Motherboard assembly number     : 73-10015-11
+Power supply part number        : 341-0098-02
+Motherboard serial number       : FOC15222JW2
+Power supply serial number      : AZS152005ZC
+Model revision number           : J0
+ --More--         Motherboard revision number     : A0
+Model number                    : WS-C2960G-24TC-L
+System serial number            : FOC1523W2H1
+Top Assembly Part Number        : 800-26673-07
+Top Assembly Revision Number    : A0
+Version ID                      : V07
+CLEI Code Number                : CMMD610ARA
+Hardware Board Revision Number  : 0x01
+
+
+Switch Ports Model              SW Version            SW Image                 
+------ ----- -----              ----------            ----------               
+*    1 24    WS-C2960G-24TC-L   15.0(2)SE11           C2960-LANBASEK9-M        
+
+
+Configuration register is 0xF
+
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#sh run | in Coios    isco
+AOKOLA01SW_RENE1_S2960_7#sh run | in Ciscover            | in Cisco
+Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE11, RELEASE SOFTWARE (fc3)
+Copyright (c) 1986-2017 by Cisco Systems, Inc.
+use. Delivery of Cisco cryptographic products does not imply
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#sh ver | in Cisco     Model number
+Model number                    : WS-C2960G-24TC-L
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#
+AOKOLA01SW_RENE1_S2960_7#q
